@@ -1,0 +1,15 @@
+.navbar {
+  padding: 10px;
+  background: rgb(25, 25, 29);
+  grid-area: navbar;
+  border-radius: 5px;
+}
+
+.item a.active {
+  color: gold;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+}

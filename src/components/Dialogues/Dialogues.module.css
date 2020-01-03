@@ -1,0 +1,14 @@
+.dialogues {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 3fr 8fr;
+}
+
+.dialoguesItem {
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+}
+
+.dialoguesItems .active {
+  color: tomato;
+}
