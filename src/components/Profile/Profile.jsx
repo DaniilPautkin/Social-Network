@@ -1,14 +1,13 @@
 import React from "react";
-import s from "./Profile.module.css";
-import MyPosts from "./MyPosts/MyPosts";
 import Profileinfo from "./Profileinfo/Profileinfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
   return (
-    <concent className={s.cont}>
-      <Profileinfo />
-      <MyPosts newPostText={props.state.newPostText} updNewPostText={props.updNewPostText} posts={props.state.posts} addPost={props.addPost} />
-    </concent>
+    <div>
+      <Profileinfo profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
+      <MyPostsContainer />
+    </div>
   );
 };
 

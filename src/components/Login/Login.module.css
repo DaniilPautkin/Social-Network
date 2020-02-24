@@ -1,0 +1,28 @@
+.form {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.input {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.checkbox:hover {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    user-select: none;
+    transform: scale(1.1);
+}
+
+.submitButton {
+    width: 200px;
+    padding: 3px;
+    margin-top: 5px;
+}

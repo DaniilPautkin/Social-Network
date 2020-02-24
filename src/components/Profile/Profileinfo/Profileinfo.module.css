@@ -1,10 +1,16 @@
 .profileMainImg {
-  width: 70%;
-  margin: 10px;
-  border-radius: 5px;
+    width: 70%;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 .desc {
-  padding: 10px;
-  color: antiquewhite;
+    padding: 10px;
+    color: antiquewhite;
+}
+
+.profileImg {
+    height: 100px;
+    margin: 5px 5px 0px 5px;
+    border-radius: 10px;
 }

@@ -1,30 +1,54 @@
-import React from "react";
-import "./App.css";
-import Header from "./components/Header/Header";
+import React from 'react';
+import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
-import Dialogues from "./components/Dialogues/Dialogues";
-import Music from "./components/Music/Music";
-import News from "./components/News/News";
-import { Route } from "react-router-dom";
+import DialoguesContainer from "./components/Dialogues/DialoguesContainer";
+import { Route, withRouter } from "react-router-dom";
+import "./App.css"
+import UsersContainer from './components/Users/UsersContainer'
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import Login from "./components/Login/Login"
+import MusicContainer from './components/Music/MusicContainer';
+import NewsContainer from './components/News/NewsContainer';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { initializeApp } from './redux/app-reducer'
+import { initialize } from 'redux-form';
+import Preloader from './components/common/Preloader/Preloader';
 
-const App = (props) => {
-  return (
-    <div className="App">
-      <Header />
-      <Navbar />
-      <div className="app-wrapper-content">
-        <Route path="/Dialogues" render={() => <Dialogues
-          state={props.state.dialoguesPage} />} />
-        <Route
-          exact path="/Profile" render={() => <Profile
-            addPost={props.addPost} state={props.state.profilePage} updNewPostText={props.updNewPostText} />}
-        />
-        <Route exact path="/Music" render={() => <Music />} />
-        <Route exact path="/News" render={() => <News />} />
-      </div>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+  render() {
+    if (!this.props.initialized) {
+      return <Preloader />
+    } else {
+      return (
+        <div className="app-wrapper">
+          <HeaderContainer />
+          <Navbar />
+          <div className="app-wrapper-content">
+            <Route path="/Dialogues" render={() => <DialoguesContainer />} />
+            <Route path="/Profile/:UserId?" render={() => <ProfileContainer />} />
+            <Route exact path="/Music" render={() => <MusicContainer />} />
+            <Route exact path="/News" render={() => <NewsContainer />} />
+            <Route exact path="/Users" render={() => <UsersContainer />} />
+            <Route exact path="/login" render={() => <Login />} />
+
+
+          </div>
+        </div>
+      );
+    }
+  }
 };
 
-export default App;
+const MapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default compose(
+  withRouter,
+  connect(MapStateToProps, { initializeApp }),
+)(App);
+

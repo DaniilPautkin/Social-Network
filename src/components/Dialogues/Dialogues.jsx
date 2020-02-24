@@ -2,32 +2,34 @@ import React from "react";
 import s from "./Dialogues.module.css";
 import Message from "./Message/Message"
 import DialoguesItem from "./DialogueItem/DialogueItem"
-
-
-
-
-
+import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
 const Dialogues = (props) => {
 
+  let state = props.dialoguesPage;
+
   let dArr =
-    props.state.dialoguesData.map(d => (
-      <DialoguesItem id={d.id} name={d.name} />
-    ))
+    state.dialoguesData.map(d => <DialoguesItem name={d.name} key={d.id} id={d.id} />);
 
   let messagesArr =
-    props.state.messagesData.map(m => (
-      <Message message={m.message} id={m.id} />
-    ))
+    state.messagesData.map(m => <Message message={m.message} key={m.id} />);
+
+  let addNewMessage = (values) => {
+    props.sendMessage(values.newMassageBody)
+  }
 
   return (
-    <div className={s.dialogues}>
-      <div className={s.dialoguesItems}>
-        {dArr}
+    <div>
+      <div className={s.dialogues}>
+        <div className={s.dialoguesItems}>
+          {dArr}
+        </div>
+        <div className={s.messages}>
+          <div>{messagesArr}</div>
+          <AddMessageForm onSubmit={addNewMessage} />
+        </div>
       </div>
-      <div className={s.messages}>
-        {messagesArr}
-      </div>
+
     </div>
   );
 };

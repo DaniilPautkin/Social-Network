@@ -1,15 +1,30 @@
 .navbar {
-  padding: 10px;
-  background: rgb(25, 25, 29);
-  grid-area: navbar;
-  border-radius: 5px;
+    padding: 20px;
+    background: rgb(184, 184, 184);
+    grid-area: navbar;
+    border-bottom-left-radius: 5px;
+    box-shadow: 5px 5px 11px 0px rgba(88, 88, 88, 0.75);
 }
 
+/* .navbar:hover {
+  box-shadow: 0px 0px 0px 0px rgba(88, 88, 88, 0.75);
+} */
+
 .item a.active {
-  color: gold;
+    padding-left: 10px;
+    border-left: 3px solid var(--main-color);
+    /* margin-left: 10px; */
+    color: var(--main-color);
 }
 
 .item a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
+}
+
+.item a:hover {
+    padding-left: 5px;
+    border-left: 1px solid gold;
+    transition: 0.1s ease-in;
+    color: gold;
 }
