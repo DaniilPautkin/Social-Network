@@ -27,7 +27,7 @@ export const initializingSuccess = () => ({
 
 export const initializeApp = () => (dispatch) => {
     let promise = dispatch(getAuthUserData())
-    Promise.all([promise]).then(() => {
+    Promise.all([promise]).then(() => { //if all promises that are in [] brackets are returned *then* we will change initializing to true
         dispatch(initializingSuccess())
     })
 

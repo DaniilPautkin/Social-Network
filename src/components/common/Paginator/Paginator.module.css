@@ -1,0 +1,6 @@
+.selectedPage {
+    color: #ffffff;
+    border-radius: 10px;
+    background-color: rgb(255, 38, 0);
+    font-weight: bold;
+}

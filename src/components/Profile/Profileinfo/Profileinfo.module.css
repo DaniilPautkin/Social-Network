@@ -1,16 +1,35 @@
-.profileMainImg {
-    width: 70%;
-    margin: 10px;
-    border-radius: 5px;
-}
-
 .desc {
     padding: 10px;
-    color: antiquewhite;
 }
 
 .profileImg {
     height: 100px;
     margin: 5px 5px 0px 5px;
     border-radius: 10px;
+}
+
+.singleForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inputPhotos {
+    cursor: pointer;
+}
+
+.inputPhotos:hover {
+    color: #ffffff;
+    background: #307a37;
+    /* box-shadow: inset 5px 5px 10px #c4c4c4, inset -5px -5px 10px #ffffff; */
+    cursor: pointer;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact {
+    margin-left: 10px;
 }

@@ -1,9 +1,11 @@
 .navbar {
+    margin: 5px 5px 0px 0px;
+    border-radius: 20px;
     padding: 20px;
-    background: rgb(184, 184, 184);
+    grid-auto-flow: row;
+    background: #47b351;
+    /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
     grid-area: navbar;
-    border-bottom-left-radius: 5px;
-    box-shadow: 5px 5px 11px 0px rgba(88, 88, 88, 0.75);
 }
 
 /* .navbar:hover {
@@ -12,19 +14,19 @@
 
 .item a.active {
     padding-left: 10px;
-    border-left: 3px solid var(--main-color);
+    border-left: 3px solid #307a37;
     /* margin-left: 10px; */
-    color: var(--main-color);
+    color: #307a37;
 }
 
 .item a {
     text-decoration: none;
-    color: white;
+    color: #fffaf7;
 }
 
 .item a:hover {
     padding-left: 5px;
-    border-left: 1px solid gold;
+    border-left: 1px solid #307a37;
     transition: 0.1s ease-in;
-    color: gold;
+    color: #307a37;
 }

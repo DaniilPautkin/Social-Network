@@ -5,7 +5,7 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { connect } from "react-redux";
 
 class NewsContainer extends React.Component {
-  render() { return <a>News</a> }
+  render() { return <a href='/#' className={s.name}>News</a> }
 };
 
 let mapStateToProps = (userId) => ({

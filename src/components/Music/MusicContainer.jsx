@@ -5,7 +5,7 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { connect } from "react-redux";
 
 class MusicContainer extends React.Component {
-  render() { return <a>Music</a> }
+  render() { return <a href="/#" className={s.name}>Music</a> }
 };
 
 let mapStateToProps = (userId) => ({

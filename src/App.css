@@ -3,13 +3,64 @@
 }
 
 * {
+    /* outline: none; */
     transition: 0.2s;
     font-family: 'Nunito', 'fira code';
+}
+
+/* *:focus {
+    outline: none;
+    box-shadow: 0 0 0 2pt #ececee;
+} */
+
+body {
+    background: #ffffff;
+}
+
+textarea {
+    border-radius: 10px;
+    border: none;
+    /* box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff; */
+    resize: none;
+    padding: 10px;
+    font-weight: 800;
+}
+
+input {
+    border-radius: 10px;
+    border: none;
+    /* box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff; */
+    resize: none;
+    padding: 10px;
+    font-weight: 800;
+}
+
+button {
+    background: #e2e2e2;
+    /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+    padding: 10px 13px 10px 13px;
+}
+
+button:hover {
+    color: #ffffff;
+    background: #307a37;
+    /* box-shadow: inset 5px 5px 10px #c4c4c4, inset -5px -5px 10px #ffffff; */
+    cursor: pointer;
+}
+
+.notFoundPage {
+    padding: 10px;
 }
 
 .app-wrapper {
     max-width: 1200px;
     margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: grid;
     width: 1200px;
     grid-template-rows: 60px 1fr;
@@ -20,9 +71,10 @@
 }
 
 .app-wrapper-content {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     color: black;
-    box-shadow: 5px 5px 11px 0px rgba(88, 88, 88, 0.75);
-    border-bottom-right-radius: 10px;
+    background: #ebebeb;
+    /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
     grid-area: cont;
-    background-color: rgb(219, 219, 219);
 }

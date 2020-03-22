@@ -5,7 +5,7 @@ import preloader from "../../../assets/images/giphy.gif"
 let Preloader = (props) => {
     return (
         <div className={s.preCont}>
-            <img src={preloader} className={s.pre} />
+            <img src={preloader} className={s.pre} alt='' />
         </div>
     )
 }

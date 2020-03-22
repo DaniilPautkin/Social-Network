@@ -1,4 +1,4 @@
-const CREATE_MESSAGE = "CREATE-MESSAGE"
+const CREATE_MESSAGE = "dialoguesPage/CREATE-MESSAGE"
 
 let initialState = {
     dialoguesData: [

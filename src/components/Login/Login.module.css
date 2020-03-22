@@ -1,12 +1,9 @@
 .form {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     padding: 10px;
 }
 
 .input {
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
     padding: 10px;
     margin: 5px;
     border: none;
@@ -24,5 +21,11 @@
 .submitButton {
     width: 200px;
     padding: 3px;
-    margin-top: 5px;
+    margin-top: 30px;
+}
+
+.captcha {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
