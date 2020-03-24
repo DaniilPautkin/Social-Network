@@ -3,9 +3,8 @@
 }
 
 .input {
-    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     border: none;
     border-radius: 5px;
 }
@@ -13,7 +12,6 @@
 .checkbox:hover {
     margin-top: 5px;
     margin-bottom: 5px;
-
     user-select: none;
     transform: scale(1.1);
 }

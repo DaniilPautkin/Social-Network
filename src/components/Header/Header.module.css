@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     grid-area: head;
-    background: #ebebeb;
+    background: #f0f0f0;
     /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
 }
 
@@ -27,7 +27,7 @@
 }
 
 .logout {
-    color: darkred;
+    color: rgb(189, 39, 39);
 }
 
 /* .header:hover {

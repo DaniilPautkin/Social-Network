@@ -36,13 +36,13 @@ input {
 }
 
 button {
-    background: #e2e2e2;
+    background: #e7e7e7;
     /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
     outline: none;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     margin: 5px;
-    padding: 10px 13px 10px 13px;
+    padding: 8px 13px 8px 13px;
 }
 
 button:hover {
@@ -74,7 +74,7 @@ button:hover {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     color: black;
-    background: #ebebeb;
+    background: #f0f0f0;
     /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
     grid-area: cont;
 }
