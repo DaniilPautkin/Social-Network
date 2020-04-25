@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import s from "./Profileinfo.module.css";
-import Preloader from "../../common/Preloader/Preloader";
+import React, { useState } from "react"
+import s from "./Profileinfo.module.css"
+import Preloader from "../../common/Preloader/Preloader"
 import ProfileStatus from "./ProfileStatus"
-import ProfileDataFormReduxForm from "./ProfileDataForm";
+import ProfileDataFormReduxForm from "./ProfileDataForm"
 import userPhoto from '../../../assets/images/USER.png'
 
 const Profileinfo = ({ isOwner, profile, status, updateStatus, savePhoto, saveProfile }) => {
 
-  let [editMode, setEditMode] = useState(false);
+  let [editMode, setEditMode] = useState(false)
 
   if (!profile) {
     return <Preloader />
@@ -36,9 +36,9 @@ const Profileinfo = ({ isOwner, profile, status, updateStatus, savePhoto, savePr
           <div>
             {/* <label htmlFor="inputFile">Upload photo</label> */}
             <input className={s.inputPhotos}
-            name="inputFile"
-            type={"file"}
-            onChange={onMainPhotoSelect} />
+              name="inputFile"
+              type={"file"}
+              onChange={onMainPhotoSelect} />
           </div>
         }
 
@@ -49,8 +49,8 @@ const Profileinfo = ({ isOwner, profile, status, updateStatus, savePhoto, savePr
         <ProfileStatus status={status ? status : <div className={s.noStatusBar}>User Have No Status</div>} updateStatus={updateStatus} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 
 const ProfileData = ({ profile, isOwner, activateEditMode }) => {
@@ -85,4 +85,4 @@ const Contact = ({ contactTitle, contactValue }) => {
   return <div className={s.contact}>{contactTitle}: {contactValue}</div>
 }
 
-export default Profileinfo;
+export default Profileinfo

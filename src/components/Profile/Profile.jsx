@@ -1,6 +1,6 @@
-import React from "react";
-import Profileinfo from "./Profileinfo/Profileinfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import React from "react"
+import Profileinfo from "./Profileinfo/Profileinfo"
+import MyPostsContainer from "./MyPosts/MyPostsContainer"
 
 const Profile = (props) => {
   return (
@@ -14,7 +14,7 @@ const Profile = (props) => {
         updateStatus={props.updateStatus} />
       <MyPostsContainer />
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

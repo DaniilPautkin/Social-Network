@@ -1,5 +1,5 @@
-import React from "react";
-import s from "./Post.module.css";
+import React from "react"
+import s from "./Post.module.css"
 
 
 const Post = (props) => {
@@ -10,7 +10,7 @@ const Post = (props) => {
         {props.message}</h2>
       <p>Likes {props.likesCount}</p>
     </div >
-  );
-};
+  )
+}
 
-export default Post;
+export default Post

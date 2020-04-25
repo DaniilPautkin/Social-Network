@@ -1,18 +1,18 @@
-import React from "react";
-import s from "./Dialogues.module.css";
+import React from "react"
+import s from "./Dialogues.module.css"
 import Message from "./Message/Message"
 import DialoguesItem from "./DialogueItem/DialogueItem"
-import AddMessageForm from "./AddMessageForm/AddMessageForm";
+import AddMessageForm from "./AddMessageForm/AddMessageForm"
 
 const Dialogues = (props) => {
 
-  let state = props.dialoguesPage;
+  let state = props.dialoguesPage
 
   let dArr =
-    state.dialoguesData.map(d => <DialoguesItem name={d.name} key={d.id} id={d.id} />);
+    state.dialoguesData.map(d => <DialoguesItem name={d.name} key={d.id} id={d.id} />)
 
   let messagesArr =
-    state.messagesData.map(m => <Message message={m.message} key={m.id} />);
+    state.messagesData.map(m => <Message message={m.message} key={m.id} />)
 
   let addNewMessage = (values) => {
     props.sendMessage(values.newMassageBody)
@@ -31,7 +31,7 @@ const Dialogues = (props) => {
       </div>
 
     </div>
-  );
-};
+  )
+}
 
-export default Dialogues;
+export default Dialogues

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Field, reduxForm } from "redux-form";
-import { Textarea } from "../../common/FormsControls/FormsControls";
-import { MaxLenghtCreator, required } from "../../../utils/validators/validators";
+import React from 'react'
+import { Field, reduxForm } from "redux-form"
+import { Textarea } from "../../common/FormsControls/FormsControls"
+import { MaxLenghtCreator, required } from "../../../utils/validators/validators"
 
-const maxLength50 = MaxLenghtCreator(50);
+const maxLength50 = MaxLenghtCreator(50)
 
 const AddMessageForm = (props) => {
     return (
@@ -20,7 +20,7 @@ const AddMessageForm = (props) => {
     )
 }
 
-export default reduxForm({ form: 'dialog-add-message-form' })(AddMessageForm);
+export default reduxForm({ form: 'dialog-add-message-form' })(AddMessageForm)
 
 
 

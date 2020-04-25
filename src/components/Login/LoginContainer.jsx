@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Login from "./Login"
 
 const LoginContainer = () => {
@@ -7,4 +7,4 @@ const LoginContainer = () => {
     )
 }
 
-export default LoginContainer;
+export default LoginContainer

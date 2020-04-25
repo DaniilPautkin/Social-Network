@@ -1,9 +1,9 @@
-import React from "react";
-import s from "./MyPosts.module.css";
-import Post from "./Post/Post";
-import { Field, reduxForm } from "redux-form";
+import React from "react"
+import s from "./MyPosts.module.css"
+import Post from "./Post/Post"
+import { Field, reduxForm } from "redux-form"
 import { required, MaxLenghtCreator } from "../../../utils/validators/validators"
-import { Textarea } from "../../common/FormsControls/FormsControls";
+import { Textarea } from "../../common/FormsControls/FormsControls"
 
 let maxLength10 = MaxLenghtCreator(10)
 
@@ -18,16 +18,16 @@ const addNewPost = (props) => {
   </form>
 }
 
-let AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(addNewPost);
+let AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(addNewPost)
 
 const MyPosts = React.memo(props => {
   let postsElements =
     [...props.posts]
       .reverse()
-      .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />);
+      .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />)
 
   let onAddPost = (values) => {
-    props.addPost(values.newPostText);
+    props.addPost(values.newPostText)
   }
 
   return (

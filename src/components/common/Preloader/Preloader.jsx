@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import s from "./Preloader.module.css"
 import preloader from "../../../assets/images/giphy.gif"
 
@@ -10,4 +10,4 @@ let Preloader = (props) => {
     )
 }
 
-export default Preloader;
+export default Preloader

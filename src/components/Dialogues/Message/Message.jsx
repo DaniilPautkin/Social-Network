@@ -1,5 +1,5 @@
-import React from "react";
-import s from "./../Dialogues.module.css";
+import React from "react"
+import s from "./../Dialogues.module.css"
 
 const Message = (props) => {
 
@@ -7,4 +7,4 @@ const Message = (props) => {
 
 }
 
-export default Message;
+export default Message

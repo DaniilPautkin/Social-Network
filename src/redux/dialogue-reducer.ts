@@ -25,7 +25,7 @@ const dialogueReducer = (state = initialState, action: any): InitialStateType =>
 
     switch (action.type) {
         case CREATE_MESSAGE:
-            let body = action.newMessageText;
+            let body = action.newMessageText
 
             return {
                 ...state,
@@ -33,7 +33,7 @@ const dialogueReducer = (state = initialState, action: any): InitialStateType =>
             }
 
         default:
-            return state;
+            return state
 
     }
 

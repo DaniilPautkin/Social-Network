@@ -1,22 +1,22 @@
-import React from 'react';
+import React from 'react'
 import "./App.css"
-import HeaderContainer from "./components/Header/HeaderContainer";
-import UsersContainer from './components/Users/UsersContainer';
-import MusicContainer from './components/Music/MusicContainer';
-import NewsContainer from './components/News/NewsContainer';
-import Preloader from './components/common/Preloader/Preloader';
-import Navbar from "./components/Navbar/Navbar";
+import HeaderContainer from "./components/Header/HeaderContainer"
+import UsersContainer from './components/Users/UsersContainer'
+import MusicContainer from './components/Music/MusicContainer'
+import NewsContainer from './components/News/NewsContainer'
+import Preloader from './components/common/Preloader/Preloader'
+import Navbar from "./components/Navbar/Navbar"
 import Login from "./components/Login/Login"
-import { Route, withRouter, Switch, Redirect } from "react-router-dom";
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { Route, withRouter, Switch, Redirect } from "react-router-dom"
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 import { initializeApp } from './redux/app-reducer'
 
 import store from "./redux/redux-store"
 import { BrowserRouter } from "react-router-dom"
-import { Provider } from 'react-redux';
-import { withSuspense } from './hoc/withSuspense';
-import Settings from './components/Settings/Settings';
+import { Provider } from 'react-redux'
+import { withSuspense } from './hoc/withSuspense'
+import Settings from './components/Settings/Settings'
 
 const DialoguesContainer = React.lazy(() => import('./components/Dialogues/DialoguesContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
@@ -28,8 +28,8 @@ class App extends React.Component {
 
 
     componentDidMount() {
-        this.props.initializeApp();
-        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+        this.props.initializeApp()
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
     }
 
     componentWillUnmount() {
@@ -62,10 +62,10 @@ class App extends React.Component {
                         </Switch >
                     </div>
                 </div>
-            );
+            )
         }
     }
-};
+}
 
 const MapStateToProps = (state) => ({
     initialized: state.app.initialized
@@ -74,7 +74,7 @@ const MapStateToProps = (state) => ({
 let AppContainer = compose(
     withRouter,
     connect(MapStateToProps, { initializeApp }),
-)(App);
+)(App)
 
 const SocialApp = (props) => {
     return <BrowserRouter>

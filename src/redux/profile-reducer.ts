@@ -1,4 +1,4 @@
-import { PostType, ProfileType, PhotosType } from './../types/types';
+import { PostType, ProfileType, PhotosType } from './../types/types'
 import { usersAPI, profileAPI } from "../api/api"
 import { stopSubmit } from "redux-form"
 
@@ -30,12 +30,12 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
                 id: 5,
                 message: action.newPostText,
                 likesCount: 0
-            };
+            }
             return {
                 ...state,
                 posts: [...state.posts, newPost],
                 newPostText: action.newPostText
-            };
+            }
         case DELETE_POST:
             return {
                 ...state, posts: state.posts.filter(p => p.id !== action.postId)
@@ -48,14 +48,14 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
             return {
                 ...state,
                 profile: action.profile
-            };
+            }
         case SET_STATUS:
             return {
                 ...state,
                 status: action.status
             }
         default:
-            return state;
+            return state
     }
 }
 
@@ -98,7 +98,7 @@ export const getUserProfile = (userId: number) => async (dispatch: any) => {
 }
 
 export const getStatus = (userId: number) => async (dispatch: any) => {
-    let response = await profileAPI.getStatus(userId);
+    let response = await profileAPI.getStatus(userId)
 
     dispatch(setStatus(response.data))
 }
@@ -130,7 +130,7 @@ export const saveProfile = (profile: ProfileType) => async (dispatch: any, getSt
         dispatch(getUserProfile(userId))
     } else {
         dispatch(stopSubmit("edit-profile", { _error: response.data.messages[0] }))
-        return Promise.reject(response.data.messages[0]);
+        return Promise.reject(response.data.messages[0])
     }
 }
 

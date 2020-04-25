@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Settings = (props) => {
 
@@ -9,4 +9,4 @@ const Settings = (props) => {
     )
 }
 
-export default Settings;
+export default Settings

@@ -5,7 +5,7 @@ type initialStateType = typeof initialState
 
 const friendsBarReducer = (state = initialState, action: any) => {
 
-    return state;
+    return state
 }
 
-export default friendsBarReducer;
+export default friendsBarReducer

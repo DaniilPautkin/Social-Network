@@ -1,11 +1,11 @@
-import React from "react";
-import s from "./../Dialogues.module.css";
+import React from "react"
+import s from "./../Dialogues.module.css"
 import { NavLink } from "react-router-dom"
 
 const DialoguesItem = (props) => {
 
 
-    let path = "/dialogues/" + props.id;
+    let path = "/dialogues/" + props.id
 
 
     return <div class={s.dialogue + ' ' + s.active}>
@@ -13,4 +13,4 @@ const DialoguesItem = (props) => {
     </div>
 }
 
-export default DialoguesItem;
+export default DialoguesItem
