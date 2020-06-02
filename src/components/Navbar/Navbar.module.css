@@ -1,9 +1,8 @@
 .navbar {
-    margin: 5px 5px 0px 0px;
-    border-radius: 15px;
+    border-bottom-left-radius: 10px;
     padding: 20px;
     grid-auto-flow: row;
-    background: #47b351;
+    background: #1f2833;
     /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
     grid-area: navbar;
 }
@@ -14,9 +13,9 @@
 
 .item a.active {
     padding-left: 10px;
-    border-left: 3px solid #307a37;
+    border-left: 3px solid #66fcf1;
     /* margin-left: 10px; */
-    color: #307a37;
+    color: #379683;
 }
 
 .item a {
@@ -26,7 +25,12 @@
 
 .item a:hover {
     padding-left: 5px;
-    border-left: 1px solid #307a37;
+    border-left: 1px solid #66fcf1;
     transition: 0.1s ease-in;
-    color: #307a37;
+    color: #66fcf1;
+}
+@media screen and (max-width: 900px) {
+    .navbar {
+        border-bottom-left-radius: 0;
+    }
 }

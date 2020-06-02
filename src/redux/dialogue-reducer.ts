@@ -3,16 +3,18 @@ import { InferActionsTypes } from './redux-store';
 
 let initialState = {
     dialoguesData: [
-        { id: 0, name: "dimych" },
-        { id: 1, name: "Sveta" },
-        { id: 2, name: "Dania" },
-        { id: 3, name: "Diana" },
-        { id: 4, name: "Velar" }
+        { id: 0, name: 'Todo' },
+        { id: 1, name: 'Messages' }
+        // { id: 0, name: "dimych" },
+        // { id: 1, name: "Sveta" },
+        // { id: 2, name: "Dania" },
+        // { id: 3, name: "Diana" },
+        // { id: 4, name: "Velar" }
     ] as Array<DialogueType>,
     messagesData: [
-        { id: 0, message: "hi" },
-        { id: 1, message: "Nice" },
-        { id: 2, message: "Uou" },
+        { id: 0, message: "1" },
+        { id: 1, message: "2" },
+        { id: 2, message: "3" },
     ] as Array<MessageType>
 }
 

@@ -5,7 +5,7 @@
 * {
     /* outline: none; */
     transition: 0.2s;
-    font-family: 'Nunito', 'fira code';
+    /* font-family: 'fira code'; */
 }
 
 /* *:focus {
@@ -14,7 +14,7 @@
 } */
 
 body {
-    background: #ffffff;
+    background: #0c1014;
 }
 
 textarea {
@@ -36,7 +36,7 @@ input {
 }
 
 button {
-    background: #e7e7e7;
+    background: #b6b6b68e;
     /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
     outline: none;
     border-radius: 5px;
@@ -46,8 +46,8 @@ button {
 }
 
 button:hover {
-    color: #ffffff;
-    background: #307a37;
+    color: #66fcf1;
+    background: #1f2833;
     /* box-shadow: inset 5px 5px 10px #c4c4c4, inset -5px -5px 10px #ffffff; */
     cursor: pointer;
 }
@@ -57,8 +57,8 @@ button:hover {
 }
 
 .app-wrapper {
-    max-width: 1200px;
     margin: 0 auto;
+
     margin-top: 10px;
     margin-bottom: 10px;
     display: grid;
@@ -71,10 +71,20 @@ button:hover {
 }
 
 .app-wrapper-content {
-    border-bottom-left-radius: 20px;
+    /* border-bottom-left-radius: 20px; */
     border-bottom-right-radius: 20px;
     color: black;
-    background: #f0f0f0;
+    padding: 10px;
+    background: #c5c6c7;
     /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
     grid-area: cont;
+}
+
+@media screen and (max-width: 900px) {
+    .app-wrapper {
+        width: 100%;
+    }
+    .app-wrapper-content {
+        border-bottom-right-radius: 0;
+    }
 }

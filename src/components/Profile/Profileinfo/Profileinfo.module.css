@@ -13,14 +13,16 @@
     flex-direction: row;
     align-items: center;
 }
-
+b {
+    font-weight: 600;
+}
 .inputPhotos {
     cursor: pointer;
 }
 
 .inputPhotos:hover {
     color: #ffffff;
-    background: #307a37;
+    background: #004e49;
     /* box-shadow: inset 5px 5px 10px #c4c4c4, inset -5px -5px 10px #ffffff; */
     cursor: pointer;
 }
@@ -31,5 +33,7 @@
 }
 
 .contact {
+    padding: 5px;
+    border-radius: 2px;
     margin-left: 10px;
 }

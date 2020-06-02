@@ -12,7 +12,11 @@ const DialoguesItem: React.FC<PropsType> = (props) => {
 
     return (
         <div className={s.dialogue + ' ' + s.active}>
-            <NavLink to={path} className={s.dialoguesItem}>
+            <NavLink
+                activeClassName={s.dialoguesItemActive}
+                to={path}
+                className={s.dialoguesItem}
+            >
                 {props.name}
             </NavLink>
         </div>

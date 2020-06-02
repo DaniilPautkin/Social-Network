@@ -15,7 +15,7 @@ const Navbar: React.FC = (props) => {
                     Messages
                 </NavLink>
             </div>
-            <div className={s.item}>
+            {/* <div className={s.item}>
                 <NavLink to="/News" activeClassName={s.active}>
                     News
                 </NavLink>
@@ -24,7 +24,7 @@ const Navbar: React.FC = (props) => {
                 <NavLink to="/Music" activeClassName={s.active}>
                     Music
                 </NavLink>
-            </div>
+            </div> */}
             <div className={s.item}>
                 <NavLink to="/settings" activeClassName={s.active}>
                     Settings

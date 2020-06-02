@@ -9,8 +9,8 @@ export type SavePhotoResponseDataType = {
 
 let initialState = {
     posts: [
-        { id: 0, message: "How", likesCount: 0 },
-        { id: 1, message: "Nice", likesCount: 55 }
+        { id: 0, message: "Message", likesCount: 0 },
+        { id: 1, message: "Todo", likesCount: 55 }
     ] as Array<PostType>,
     profile: null as ProfileType | null,
     status: '',

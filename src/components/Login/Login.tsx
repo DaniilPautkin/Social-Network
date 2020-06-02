@@ -30,6 +30,7 @@ const LoginForm: React.FC<InjectedFormProps<
                 [required],
                 Input
             )}
+            <br />
             {createField<LoginFormValuesTypeKeys>(
                 'Password',
                 'password',
@@ -39,14 +40,14 @@ const LoginForm: React.FC<InjectedFormProps<
                     type: 'password',
                 }
             )}
-            {createField<LoginFormValuesTypeKeys>(
+            {/* {createField<LoginFormValuesTypeKeys>(
                 undefined,
                 'rememberMe',
                 [],
                 Input,
                 { type: 'checkbox' },
                 'remember me'
-            )}
+            )} */}
 
             {captchaUrl && (
                 <img alt="" className={s.captcha} src={captchaUrl} />

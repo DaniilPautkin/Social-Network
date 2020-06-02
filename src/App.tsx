@@ -6,6 +6,7 @@ import {
     Route,
     Switch,
     withRouter,
+    HashRouter,
 } from 'react-router-dom'
 import { compose } from 'redux'
 import './App.css'
@@ -20,6 +21,7 @@ import UsersContainer from './components/Users/UsersContainer'
 import { withSuspense } from './hoc/withSuspense'
 import { initializeApp } from './redux/app-reducer'
 import store, { AppStateType } from './redux/redux-store'
+import { message } from 'antd'
 
 const DialoguesContainer = React.lazy(() =>
     import('./components/Dialogues/DialoguesContainer')
@@ -38,7 +40,7 @@ type DispatchPropsType = {
 
 class App extends React.Component<MapPropsType & DispatchPropsType> {
     catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
-        alert('Error')
+        message.error('Some error occured')
     }
 
     componentDidMount() {
@@ -75,10 +77,10 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                                 path="/dialogues"
                                 render={() => <SuspendedDialogues />}
                             />
-                            {/* <Route
+                            <Route
                                 path="/news"
                                 render={() => <NewsContainer />}
-                            /> */}
+                            />
                             <Route
                                 path="/music"
                                 render={() => <MusicContainer />}
@@ -125,11 +127,11 @@ let AppContainer = compose<React.ComponentType>(
 
 const SocialApp: React.FC = () => {
     return (
-        <BrowserRouter basename={process.env.PUBLIC_KEY}>
+        <HashRouter>
             <Provider store={store}>
                 <AppContainer />
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 

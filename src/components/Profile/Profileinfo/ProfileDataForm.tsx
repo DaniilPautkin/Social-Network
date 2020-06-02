@@ -28,13 +28,9 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
 
             <div className={s.singleForm}>
                 <b>Looking for a job:</b>{' '}
-                {createField<ProfileTypeKeys>(
-                    '',
-                    'lookingForAJobDescription',
-                    [],
-                    Input,
-                    { type: 'checkbox' }
-                )}
+                {createField<ProfileTypeKeys>('', 'lookingForAJob', [], Input, {
+                    type: 'checkbox',
+                })}
             </div>
             <div className={s.singleForm}>
                 <b>Skills and background:</b>{' '}
@@ -62,10 +58,8 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     // todo: create some solution for embedded objects
                     return (
                         <div key={key} className={s.contact}>
-                            <b>
-                                {key}:{' '}
-                                {createField(key, 'contacts.' + key, [], Input)}
-                            </b>
+                            <b>{key}: </b>
+                            {createField(key, 'contacts.' + key, [], Input)}
                         </div>
                     )
                 })}

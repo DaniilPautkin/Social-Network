@@ -33,6 +33,10 @@ let User: React.FC<PropsType> = ({
                 </NavLink>
             </div>
             <div>
+                <span>
+                    <div>{user.name}</div>
+                    <div>{user.status}</div>
+                </span>
                 {user.followed ? (
                     <button
                         disabled={followingInProgress.some(
@@ -57,10 +61,6 @@ let User: React.FC<PropsType> = ({
                     </button>
                 )}
             </div>
-            <span>
-                <div>{user.name}</div>
-                <div>{user.status}</div>
-            </span>
         </div>
     )
 }

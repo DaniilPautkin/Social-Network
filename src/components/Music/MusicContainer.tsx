@@ -1,13 +1,13 @@
 import React from 'react'
-import s from './News.module.css'
+import s from './Music.module.css'
 import { compose } from 'redux'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import { connect } from 'react-redux'
-import News from './News'
+import Music from './Music'
 
-class NewsContainer extends React.Component<any> {
+class MusicContainer extends React.Component {
     render() {
-        return <News />
+        return <Music />
     }
 }
 // todo: fix
@@ -17,5 +17,5 @@ let mapStateToProps = (userId: any) => ({
 
 export default compose<React.ComponentType>(
     withAuthRedirect,
-    connect(mapStateToProps, { withAuthRedirect })
-)(NewsContainer)
+    connect(mapStateToProps, {})
+)(MusicContainer)
