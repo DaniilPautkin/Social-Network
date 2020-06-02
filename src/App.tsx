@@ -42,6 +42,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
     }
 
     componentDidMount() {
+        document.title = 'Social-Network'
         this.props.initializeApp()
         window.addEventListener(
             'unhandledrejection',
@@ -124,7 +125,7 @@ let AppContainer = compose<React.ComponentType>(
 
 const SocialApp: React.FC = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_KEY}>
             <Provider store={store}>
                 <AppContainer />
             </Provider>
