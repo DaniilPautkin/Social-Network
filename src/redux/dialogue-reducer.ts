@@ -1,7 +1,5 @@
-import { DialogType, MessageType } from './../types/types';
-const CREATE_MESSAGE = "dialoguesPage/CREATE-MESSAGE"
-
-
+import { DialogueType, MessageType } from './../types/types';
+import { InferActionsTypes } from './redux-store';
 
 let initialState = {
     dialoguesData: [
@@ -10,7 +8,7 @@ let initialState = {
         { id: 2, name: "Dania" },
         { id: 3, name: "Diana" },
         { id: 4, name: "Velar" }
-    ] as Array<DialogType>,
+    ] as Array<DialogueType>,
     messagesData: [
         { id: 0, message: "hi" },
         { id: 1, message: "Nice" },
@@ -20,16 +18,22 @@ let initialState = {
 
 export type InitialStateType = typeof initialState
 
+type ActionsType = InferActionsTypes<typeof actions>
 
-const dialogueReducer = (state = initialState, action: any): InitialStateType => {
+export const actions = {
+    createMessage: (newMassageBody: string) => ({ type: 'SN/DIALOGUES/CREATE-MESSAGE', newMassageBody } as const)
+}
+
+
+const dialogueReducer = (state = initialState, action: ActionsType): InitialStateType => {
 
     switch (action.type) {
-        case CREATE_MESSAGE:
-            let body = action.newMessageText
+        case 'SN/DIALOGUES/CREATE-MESSAGE':
+            let body = action.newMassageBody
 
             return {
                 ...state,
-                messages: [...state.messagesData, { id: 0, message: body }],
+                messagesData: [...state.messagesData, { id: 0, message: body }],
             }
 
         default:
@@ -39,11 +43,6 @@ const dialogueReducer = (state = initialState, action: any): InitialStateType =>
 
 }
 
-type createMessageCreatorActionType = {
-    type: typeof CREATE_MESSAGE,
-    newMassageBody: string
-}
 
-export const createMessage = (newMassageBody: string): createMessageCreatorActionType => ({ type: CREATE_MESSAGE, newMassageBody })
 
 export default dialogueReducer

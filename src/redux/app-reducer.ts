@@ -1,18 +1,16 @@
+import { InferActionsTypes } from './redux-store';
 import { getAuthUserData } from "./auth-reducer"
 
-const INITIALIZED_SUCCESS = 'SET-INITIALIZED'
-
-type InitialStateType = {
-    initialized: boolean
-}
-
-let initialState: InitialStateType = {
+let initialState = {
     initialized: false
 }
 
-const appReducer = (state = initialState, action: any): InitialStateType => {
+export type InitialStateType = typeof initialState
+type ActionsType = InferActionsTypes<typeof actions>
+
+const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
-        case INITIALIZED_SUCCESS:
+        case 'SN/APP/SET-INITIALIZED':
             return {
                 ...state,
                 initialized: true
@@ -23,18 +21,20 @@ const appReducer = (state = initialState, action: any): InitialStateType => {
     }
 }
 
-type InitialSuccessActionType = {
-    type: typeof INITIALIZED_SUCCESS
-}
+// export const initializingSuccess = (): InitialSuccessActionType => ({
+//     type: INITIALIZED_SUCCESS
+// })
 
-export const initializingSuccess = (): InitialSuccessActionType => ({
-    type: INITIALIZED_SUCCESS
-})
+export const actions = {
+    initializingSuccess: () => ({
+        type: 'SN/APP/SET-INITIALIZED'
+    } as const)
+}
 
 export const initializeApp = () => (dispatch: any) => {
     let promise = dispatch(getAuthUserData())
     Promise.all([promise]).then(() => { //if all promises that are in [] brackets are returned *then* we will change initializing to true
-        dispatch(initializingSuccess())
+        dispatch(actions.initializingSuccess())
     })
 
 }

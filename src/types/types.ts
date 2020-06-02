@@ -38,7 +38,7 @@ export type UserType = {
     photos: PhotosType
     followed: boolean
 }
-export type DialogType = {
+export type DialogueType = {
     id: number
     name: string
 }

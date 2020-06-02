@@ -9,7 +9,7 @@ type FormControlPropsType = {
 
 const FormControl: React.FC<FormControlPropsType> = ({
     meta: { touched, error },
-    children
+    children,
 }) => {
     const hasError = touched && error
     return (
@@ -20,7 +20,7 @@ const FormControl: React.FC<FormControlPropsType> = ({
     )
 }
 
-export const Textarea: React.FC<WrappedFieldProps> = props => {
+export const Textarea: React.FC<WrappedFieldProps> = (props) => {
     const { input, meta, ...restProps } = props
     return (
         <FormControl {...props}>
@@ -60,3 +60,5 @@ export function createField<FormKeysType extends string>(
         </div>
     )
 }
+
+export type GetStringKeys<T> = Extract<keyof T, string>

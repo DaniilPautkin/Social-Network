@@ -3,7 +3,6 @@ import s from './ProfileStatus.module.css'
 
 type PropsType = {
     updateStatus: (newStatus: string) => void
-    editMode: boolean
     status: string
 }
 
