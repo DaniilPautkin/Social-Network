@@ -74,10 +74,10 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                                 path="/dialogues"
                                 render={() => <SuspendedDialogues />}
                             />
-                            <Route
+                            {/* <Route
                                 path="/news"
                                 render={() => <NewsContainer />}
-                            />
+                            /> */}
                             <Route
                                 path="/music"
                                 render={() => <MusicContainer />}
