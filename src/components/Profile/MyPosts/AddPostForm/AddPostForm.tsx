@@ -4,7 +4,7 @@ import { required } from '../../../../utils/validators/validators'
 import {
     createField,
     GetStringKeys,
-    Input,
+    RFInput,
 } from '../../../common/FormsControls/FormsControls'
 
 type PropsType = {}
@@ -24,7 +24,7 @@ const AddPostForm: React.FC<InjectedFormProps<AddPostValuesType, PropsType> &
                     'Post',
                     'newPostText',
                     [required],
-                    Input
+                    RFInput
                 )}
             </div>
             <div>

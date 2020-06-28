@@ -1,16 +1,22 @@
 .form {
-    border: 1px solid #c1c1c1;
-    border-radius: 10px;
-    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
 
-.input {
-    font-weight: 300;
+.form input {
+    margin-bottom: 10px;
+}
+
+/* .input {
     padding: 5px 10px 5px 10px;
     margin: 10px;
     border: none;
     border-radius: 5px;
-}
+} */
 
 .checkbox:hover {
     margin-top: 5px;
@@ -19,11 +25,11 @@
     transform: scale(1.1);
 }
 
-.submitButton {
+/* .submitButton {
     width: 200px;
     padding: 3px;
     margin-top: 30px;
-}
+} */
 
 .captcha {
     margin-top: 10px;

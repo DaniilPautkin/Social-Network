@@ -8,10 +8,12 @@ import { required } from '../../utils/validators/validators'
 import sform from '../common/FormsControls/FormsControl.module.css'
 import {
     createField,
-    Input,
+    RFInput,
     GetStringKeys,
 } from '../common/FormsControls/FormsControls'
 import s from './Login.module.css'
+import Text from 'antd/lib/typography/Text'
+import { Button } from 'antd'
 
 type LoginFormOwnProps = {
     captchaUrl: string | null
@@ -24,18 +26,18 @@ const LoginForm: React.FC<InjectedFormProps<
     LoginFormOwnProps> = ({ handleSubmit, error, captchaUrl, children }) => {
     return (
         <form className={s.form} onSubmit={handleSubmit}>
+            <Text>Login</Text>
             {createField<LoginFormValuesTypeKeys>(
                 'Email',
                 'email',
                 [required],
-                Input
+                RFInput
             )}
-            <br />
             {createField<LoginFormValuesTypeKeys>(
                 'Password',
                 'password',
                 [required],
-                Input,
+                RFInput,
                 {
                     type: 'password',
                 }
@@ -59,12 +61,12 @@ const LoginForm: React.FC<InjectedFormProps<
                         'Symbols from image',
                         'captcha',
                         [required],
-                        Input,
+                        RFInput,
                         {}
                     )}
             </div>
             <div>
-                <button className={s.submitButton}>Login</button>
+                <Button className={s.submitButton}>Login</Button>
             </div>
         </form>
     )
@@ -113,7 +115,6 @@ const Login: React.FC<MapStateToPropsType & MapDispatchPropsType> = (props) => {
 
     return (
         <div>
-            <h1>Login</h1>
             <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
         </div>
     )

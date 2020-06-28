@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './Header.module.css'
 import { NavLink } from 'react-router-dom'
+import { Button } from 'antd'
 
 export type MapPropsType = {
     isAuth: boolean
@@ -22,13 +23,13 @@ const Header: React.FC<MapPropsType & DispatchPropsType> = (props) => {
                 {props.isAuth ? (
                     <div>
                         {props.login}{' '}
-                        <button className={s.logout} onClick={props.logout}>
+                        <Button className={s.logout} onClick={props.logout}>
                             Log out
-                        </button>
+                        </Button>
                     </div>
                 ) : (
                     <NavLink to={'/login'}>
-                        <button className={s.login}>Login</button>
+                        <Button className={s.login}>Login</Button>
                     </NavLink>
                 )}
             </div>

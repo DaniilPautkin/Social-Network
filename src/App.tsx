@@ -1,12 +1,13 @@
+import { message } from 'antd'
+import 'antd/dist/antd.css'
 import React from 'react'
 import { connect, Provider } from 'react-redux'
 import {
-    BrowserRouter,
+    HashRouter,
     Redirect,
     Route,
     Switch,
     withRouter,
-    HashRouter,
 } from 'react-router-dom'
 import { compose } from 'redux'
 import './App.css'
@@ -21,7 +22,6 @@ import UsersContainer from './components/Users/UsersContainer'
 import { withSuspense } from './hoc/withSuspense'
 import { initializeApp } from './redux/app-reducer'
 import store, { AppStateType } from './redux/redux-store'
-import { message } from 'antd'
 
 const DialoguesContainer = React.lazy(() =>
     import('./components/Dialogues/DialoguesContainer')

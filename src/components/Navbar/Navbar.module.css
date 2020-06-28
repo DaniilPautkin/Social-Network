@@ -1,5 +1,5 @@
 .navbar {
-    border-bottom-left-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     grid-auto-flow: row;
     background: #1f2833;

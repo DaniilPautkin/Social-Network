@@ -17,27 +17,31 @@ body {
     background: #0c1014;
 }
 
-textarea {
+.ant-btn {
+    padding: 0px !important;
+}
+
+/* textarea {
     border-radius: 10px;
     border: none;
-    /* box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff; */
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
     resize: none;
     padding: 10px;
     font-weight: 800;
-}
-
+} */
+/* 
 input {
     border-radius: 10px;
     border: none;
-    /* box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff; */
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
     resize: none;
     padding: 10px;
     font-weight: 800;
-}
+} */
 
-button {
+/* button {
     background: #b6b6b68e;
-    /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
+    box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff;
     outline: none;
     border-radius: 5px;
     border: none;
@@ -48,9 +52,9 @@ button {
 button:hover {
     color: #66fcf1;
     background: #1f2833;
-    /* box-shadow: inset 5px 5px 10px #c4c4c4, inset -5px -5px 10px #ffffff; */
+    box-shadow: inset 5px 5px 10px #c4c4c4, inset -5px -5px 10px #ffffff;
     cursor: pointer;
-}
+} */
 
 .notFoundPage {
     padding: 10px;
@@ -58,7 +62,7 @@ button:hover {
 
 .app-wrapper {
     margin: 0 auto;
-
+    grid-gap: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     display: grid;
@@ -72,7 +76,7 @@ button:hover {
 
 .app-wrapper-content {
     /* border-bottom-left-radius: 20px; */
-    border-bottom-right-radius: 20px;
+    border-radius: 5px;
     color: black;
     padding: 10px;
     background: #c5c6c7;

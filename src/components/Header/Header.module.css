@@ -1,7 +1,6 @@
 .header {
     z-index: 1;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-radius: 5px;
 
     flex-direction: row;
     align-items: center;
@@ -12,9 +11,9 @@
     /* box-shadow: 5px 5px 12px #c4c4c4, -5px -5px 12px #ffffff; */
 }
 
-.loginBlock {
+/* .loginBlock {
     padding: 10px;
-}
+} */
 
 .loginBlock a {
     text-decoration: none;
@@ -22,12 +21,14 @@
 }
 
 .login {
-    color: #0b0c10;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    border-radius: 5px;
 }
 
-.logout {
+/* .logout {
     color: #66fcf1;
-}
+} */
 
 /* .header:hover {
   box-shadow: 0px 0px 0px 0px rgba(88, 88, 88, 0.75);

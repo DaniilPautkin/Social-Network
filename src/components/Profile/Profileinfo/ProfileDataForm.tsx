@@ -5,8 +5,8 @@ import sform from '../../common/FormsControls/FormsControl.module.css'
 import {
     createField,
     GetStringKeys,
-    Input,
-    Textarea,
+    RFInput,
+    RFTextarea,
 } from '../../common/FormsControls/FormsControls'
 import s from './Profileinfo.module.css'
 
@@ -22,15 +22,21 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     'Full name',
                     'fullName',
                     [],
-                    Input
+                    RFInput
                 )}
             </div>
 
             <div className={s.singleForm}>
                 <b>Looking for a job:</b>{' '}
-                {createField<ProfileTypeKeys>('', 'lookingForAJob', [], Input, {
-                    type: 'checkbox',
-                })}
+                {createField<ProfileTypeKeys>(
+                    '',
+                    'lookingForAJob',
+                    [],
+                    RFInput,
+                    {
+                        type: 'checkbox',
+                    }
+                )}
             </div>
             <div className={s.singleForm}>
                 <b>Skills and background:</b>{' '}
@@ -38,7 +44,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     'Skills and background',
                     'lookingForAJobDescription',
                     [],
-                    Textarea
+                    RFTextarea
                 )}
             </div>
 
@@ -48,7 +54,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     'About me',
                     'aboutMe',
                     [],
-                    Textarea
+                    RFTextarea
                 )}
             </div>
 
@@ -59,7 +65,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     return (
                         <div key={key} className={s.contact}>
                             <b>{key}: </b>
-                            {createField(key, 'contacts.' + key, [], Input)}
+                            {createField(key, 'contacts.' + key, [], RFInput)}
                         </div>
                     )
                 })}

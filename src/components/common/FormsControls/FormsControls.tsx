@@ -2,6 +2,8 @@ import { FieldValidatorType } from '../../../utils/validators/validators'
 import React from 'react'
 import s from './FormsControl.module.css'
 import { Field, WrappedFieldProps, WrappedFieldMetaProps } from 'redux-form'
+import TextArea from 'antd/lib/input/TextArea'
+import { Input } from 'antd'
 
 type FormControlPropsType = {
     meta: WrappedFieldMetaProps
@@ -20,7 +22,7 @@ const FormControl: React.FC<FormControlPropsType> = ({
     )
 }
 
-export const Textarea: React.FC<WrappedFieldProps> = (props) => {
+export const RFTextarea: React.FC<WrappedFieldProps> = (props) => {
     const { input, meta, ...restProps } = props
     return (
         <FormControl {...props}>
@@ -29,7 +31,7 @@ export const Textarea: React.FC<WrappedFieldProps> = (props) => {
     )
 }
 
-export const Input = (props: any) => {
+export const RFInput = (props: any) => {
     const { input, meta, ...restProps } = props
     return (
         <FormControl {...props}>

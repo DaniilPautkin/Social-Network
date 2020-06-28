@@ -68,9 +68,10 @@ export const requestUsers = (page: number, pageSize: number): ThunkType => {
         dispatch(usersActions.toggleIsFetching(true))
 
         let data = await usersAPI.getUsers(page, pageSize)
-        dispatch(usersActions.toggleIsFetching(false))
+
         dispatch(usersActions.setUsers(data.items))
         dispatch(usersActions.setTotalUsersCount(data.totalCount))
+        dispatch(usersActions.toggleIsFetching(false))
     }
 }
 
