@@ -22,6 +22,7 @@ import UsersContainer from './components/Users/UsersContainer'
 import { withSuspense } from './hoc/withSuspense'
 import { initializeApp } from './redux/app-reducer'
 import store, { AppStateType } from './redux/redux-store'
+import { MainWrapper, Main } from './styles/App-styles'
 
 const DialoguesContainer = React.lazy(() =>
     import('./components/Dialogues/DialoguesContainer')
@@ -64,10 +65,10 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
             return <Preloader />
         } else {
             return (
-                <div className="app-wrapper">
+                <MainWrapper>
                     <HeaderContainer />
                     <Navbar />
-                    <div className="app-wrapper-content">
+                    <Main>
                         <Switch>
                             <Route
                                 path="/profile/:UserId?"
@@ -109,8 +110,8 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                                 )}
                             />
                         </Switch>
-                    </div>
-                </div>
+                    </Main>
+                </MainWrapper>
             )
         }
     }

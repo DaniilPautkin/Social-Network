@@ -2,6 +2,8 @@ import React from 'react'
 import s from './Header.module.css'
 import { NavLink } from 'react-router-dom'
 import { Button } from 'antd'
+import { StyledHeader, AuthContainer, Logo } from '../../styles/Header-styles'
+import { LogoutButton, SubmitLoginButton } from '../../styles/Login-styles'
 
 export type MapPropsType = {
     isAuth: boolean
@@ -14,26 +16,26 @@ export type DispatchPropsType = {
 
 const Header: React.FC<MapPropsType & DispatchPropsType> = (props) => {
     return (
-        <header className={s.header}>
-            <img
+        <StyledHeader>
+            <Logo
                 alt=""
                 src="https://about.canva.com/en_in/wp-content/uploads/sites/3/2016/08/logos-1.png"
             />
-            <div className={s.loginBlock}>
+            <AuthContainer>
                 {props.isAuth ? (
-                    <div>
+                    <AuthContainer>
                         {props.login}{' '}
-                        <Button className={s.logout} onClick={props.logout}>
+                        <LogoutButton onClick={props.logout}>
                             Log out
-                        </Button>
-                    </div>
+                        </LogoutButton>
+                    </AuthContainer>
                 ) : (
                     <NavLink to={'/login'}>
-                        <Button className={s.login}>Login</Button>
+                        <SubmitLoginButton>Login</SubmitLoginButton>
                     </NavLink>
                 )}
-            </div>
-        </header>
+            </AuthContainer>
+        </StyledHeader>
     )
 }
 

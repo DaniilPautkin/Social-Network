@@ -1,9 +1,9 @@
 import React from 'react'
+import { PostElemets, PostsContainer } from '../../../styles/Posts-styles'
 import { PostType } from '../../../types/types'
 import AddNewPostFormRedux, {
     AddPostValuesType,
 } from './AddPostForm/AddPostForm'
-import s from './MyPosts.module.css'
 import Post from './Post/Post'
 
 export type MapPropsType = {
@@ -26,11 +26,11 @@ const MyPosts: React.FC<MapPropsType & DispatchPropsType> = (props) => {
     }
 
     return (
-        <div className={s.postsBlock}>
+        <PostsContainer>
             <h3>My posts</h3>
             <AddNewPostFormRedux onSubmit={onAddPost} />
-            <div className={s.posts}>{postsElements}</div>
-        </div>
+            <PostElemets>{postsElements}</PostElemets>
+        </PostsContainer>
     )
 }
 

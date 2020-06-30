@@ -1,6 +1,5 @@
 import React from 'react'
-import s from './../Dialogues.module.css'
-import { NavLink } from 'react-router-dom'
+import { DialogueNavLink } from '../../../styles/Dialogues-styles'
 
 type PropsType = {
     id: number
@@ -11,15 +10,9 @@ const DialoguesItem: React.FC<PropsType> = (props) => {
     let path = '/dialogues/' + props.id
 
     return (
-        <div className={s.dialogue + ' ' + s.active}>
-            <NavLink
-                activeClassName={s.dialoguesItemActive}
-                to={path}
-                className={s.dialoguesItem}
-            >
-                {props.name}
-            </NavLink>
-        </div>
+        <DialogueNavLink activeClassName="dialoguesItemActive" to={path}>
+            {props.name}
+        </DialogueNavLink>
     )
 }
 

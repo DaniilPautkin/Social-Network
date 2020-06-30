@@ -1,22 +1,26 @@
 import React from 'react'
 import { Form, InjectedFormProps, reduxForm } from 'redux-form'
+import { FormSummaryError } from '../../../styles/FormsControls-styles'
+import {
+    Contacts,
+    SingleForm,
+    StyledContact,
+} from '../../../styles/Profile-styles'
 import { ProfileType } from '../../../types/types'
-import sform from '../../common/FormsControls/FormsControl.module.css'
 import {
     createField,
     GetStringKeys,
     RFInput,
     RFTextarea,
 } from '../../common/FormsControls/FormsControls'
-import s from './Profileinfo.module.css'
 
 const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
     PropsType> = ({ handleSubmit, profile, error }) => {
     return (
         <Form onSubmit={handleSubmit}>
             <button>Save</button>
-            {error && <div className={sform.formSummaryError}>{error}</div>}
-            <div className={s.singleForm}>
+            {error && <FormSummaryError>{error}</FormSummaryError>}
+            <SingleForm>
                 <b>Fullname:</b>{' '}
                 {createField<ProfileTypeKeys>(
                     'Full name',
@@ -24,9 +28,9 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     [],
                     RFInput
                 )}
-            </div>
+            </SingleForm>
 
-            <div className={s.singleForm}>
+            <SingleForm>
                 <b>Looking for a job:</b>{' '}
                 {createField<ProfileTypeKeys>(
                     '',
@@ -37,8 +41,9 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                         type: 'checkbox',
                     }
                 )}
-            </div>
-            <div className={s.singleForm}>
+            </SingleForm>
+
+            <SingleForm>
                 <b>Skills and background:</b>{' '}
                 {createField<ProfileTypeKeys>(
                     'Skills and background',
@@ -46,9 +51,9 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     [],
                     RFTextarea
                 )}
-            </div>
+            </SingleForm>
 
-            <div className={s.singleForm}>
+            <SingleForm>
                 <b>About me:</b>{' '}
                 {createField<ProfileTypeKeys>(
                     'About me',
@@ -56,20 +61,20 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     [],
                     RFTextarea
                 )}
-            </div>
+            </SingleForm>
 
-            <div className={s.contacts}>
+            <Contacts>
                 <b>Contacts:</b>{' '}
                 {Object.keys(profile.contacts).map((key) => {
-                    // todo: create some solution for embedded objects
+                    // TODO: create some solution for embedded objects
                     return (
-                        <div key={key} className={s.contact}>
+                        <StyledContact key={key}>
                             <b>{key}: </b>
                             {createField(key, 'contacts.' + key, [], RFInput)}
-                        </div>
+                        </StyledContact>
                     )
                 })}
-            </div>
+            </Contacts>
         </Form>
     )
 }

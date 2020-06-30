@@ -1,7 +1,7 @@
 import React from 'react'
-import s from './users.module.css'
-import userPhoto from '../../assets/images/USER.png'
 import { NavLink } from 'react-router-dom'
+import userPhoto from '../../assets/images/USER.png'
+import { UserContainer, UserPhoto } from '../../styles/Users-styles'
 import { UserType } from '../../types/types'
 
 type PropsType = {
@@ -18,16 +18,15 @@ let User: React.FC<PropsType> = ({
     follow,
 }) => {
     return (
-        <div className={s.main}>
+        <UserContainer>
             <div>
                 <NavLink to={'/profile/' + user.id}>
-                    <img
+                    <UserPhoto
                         src={
                             user.photos.small != null
                                 ? user.photos.small
                                 : userPhoto
                         }
-                        className={s.userPhoto}
                         alt=""
                     />
                 </NavLink>
@@ -61,7 +60,7 @@ let User: React.FC<PropsType> = ({
                     </button>
                 )}
             </div>
-        </div>
+        </UserContainer>
     )
 }
 

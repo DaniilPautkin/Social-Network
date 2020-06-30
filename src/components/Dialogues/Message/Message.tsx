@@ -1,12 +1,12 @@
 import React from 'react'
-import s from './../Dialogues.module.css'
+import { StyledMessage } from '../../../styles/Dialogues-styles'
 
 type PropsType = {
     message: string
 }
 
 const Message: React.FC<PropsType> = (props) => {
-    return <div className={s.message}>{props.message}</div>
+    return <StyledMessage>{props.message}</StyledMessage>
 }
 
 export default Message

@@ -1,9 +1,7 @@
-import { FieldValidatorType } from '../../../utils/validators/validators'
 import React from 'react'
+import { Field, WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form'
+import { FieldValidatorType } from '../../../utils/validators/validators'
 import s from './FormsControl.module.css'
-import { Field, WrappedFieldProps, WrappedFieldMetaProps } from 'redux-form'
-import TextArea from 'antd/lib/input/TextArea'
-import { Input } from 'antd'
 
 type FormControlPropsType = {
     meta: WrappedFieldMetaProps
@@ -15,10 +13,13 @@ const FormControl: React.FC<FormControlPropsType> = ({
 }) => {
     const hasError = touched && error
     return (
-        <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
+        // FIX: className
+        // <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
+        <div>
             <div>{children}</div>
             {hasError && <span>{error} </span>}
         </div>
+        // </div>
     )
 }
 

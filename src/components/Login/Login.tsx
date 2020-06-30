@@ -1,19 +1,22 @@
+import Text from 'antd/lib/typography/Text'
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { InjectedFormProps, reduxForm } from 'redux-form'
 import { login } from '../../redux/auth-reducer'
 import { AppStateType } from '../../redux/redux-store'
+import { FormSummaryError } from '../../styles/FormsControls-styles'
+import {
+    Captcha,
+    StyledLoginForm,
+    SubmitLoginButton,
+} from '../../styles/Login-styles'
 import { required } from '../../utils/validators/validators'
-import sform from '../common/FormsControls/FormsControl.module.css'
 import {
     createField,
-    RFInput,
     GetStringKeys,
+    RFInput,
 } from '../common/FormsControls/FormsControls'
-import s from './Login.module.css'
-import Text from 'antd/lib/typography/Text'
-import { Button } from 'antd'
 
 type LoginFormOwnProps = {
     captchaUrl: string | null
@@ -25,7 +28,7 @@ const LoginForm: React.FC<InjectedFormProps<
 > &
     LoginFormOwnProps> = ({ handleSubmit, error, captchaUrl, children }) => {
     return (
-        <form className={s.form} onSubmit={handleSubmit}>
+        <StyledLoginForm>
             <Text>Login</Text>
             {createField<LoginFormValuesTypeKeys>(
                 'Email',
@@ -51,11 +54,9 @@ const LoginForm: React.FC<InjectedFormProps<
                 'remember me'
             )} */}
 
-            {captchaUrl && (
-                <img alt="" className={s.captcha} src={captchaUrl} />
-            )}
+            {captchaUrl && <Captcha src={captchaUrl} />}
             <div>
-                {error && <div className={sform.formSummaryError}>{error}</div>}
+                {error && <FormSummaryError>{error}</FormSummaryError>}
                 {captchaUrl &&
                     createField<LoginFormValuesTypeKeys>(
                         'Symbols from image',
@@ -66,9 +67,11 @@ const LoginForm: React.FC<InjectedFormProps<
                     )}
             </div>
             <div>
-                <Button className={s.submitButton}>Login</Button>
+                <SubmitLoginButton onClick={handleSubmit}>
+                    Login
+                </SubmitLoginButton>
             </div>
-        </form>
+        </StyledLoginForm>
     )
 }
 

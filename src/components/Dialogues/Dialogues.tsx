@@ -1,8 +1,12 @@
 import React from 'react'
 import { InitialStateType } from '../../redux/dialogue-reducer'
+import {
+    DialoguesContainer,
+    MessagesContainer,
+    StyledDialogues,
+} from '../../styles/Dialogues-styles'
 import AddMessageForm from './AddMessageForm/AddMessageForm'
 import DialoguesItem from './DialogueItem/DialogueItem'
-import s from './Dialogues.module.css'
 import Message from './Message/Message'
 
 type OwnPropsType = {
@@ -31,13 +35,13 @@ const Dialogues: React.FC<OwnPropsType> = (props) => {
 
     return (
         <div>
-            <div className={s.dialogues}>
-                <div className={s.dialoguesItems}>{dArr}</div>
-                <div className={s.messages}>
-                    <div>{messagesArr}</div>
+            <DialoguesContainer>
+                <StyledDialogues>{dArr}</StyledDialogues>
+                <MessagesContainer>
+                    {messagesArr}
                     <AddMessageForm onSubmit={addNewMessage} />
-                </div>
-            </div>
+                </MessagesContainer>
+            </DialoguesContainer>
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
-import s from './ProfileStatus.module.css'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { StatusLine } from '../../../styles/Profile-styles'
 
 type PropsType = {
     updateStatus: (newStatus: string) => void
@@ -31,7 +31,7 @@ const ProfileStatus = (props: PropsType) => {
         <div>
             {!editMode && (
                 <div>
-                    <b className={s.statusLine}>Status: </b>
+                    <StatusLine>Status: </StatusLine>
                     <span onDoubleClick={activateEditMode}>
                         {props.status || '-------'}
                     </span>
@@ -39,7 +39,7 @@ const ProfileStatus = (props: PropsType) => {
             )}
             {editMode && (
                 <div>
-                    <b className={s.statusLine}>Status: </b>
+                    <StatusLine>Status: </StatusLine>
                     <input
                         onChange={onStatusChange}
                         onBlur={deactivateEditMode}

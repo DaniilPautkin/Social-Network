@@ -5,6 +5,13 @@ import ProfileStatus from './ProfileStatus'
 import ProfileDataFormReduxForm from './ProfileDataForm'
 import userPhoto from '../../../assets/images/USER.png'
 import { ProfileType, ContactsType } from '../../../types/types'
+import {
+    Description,
+    Contacts,
+    StyledContact,
+    ProfileImage,
+    ChooseFileForm,
+} from '../../../styles/Profile-styles'
 
 type PropsType = {
     isOwner: boolean
@@ -43,18 +50,13 @@ const Profileinfo: React.FC<PropsType> = ({
     }
 
     return (
-        <div className={s.ProfileInfo}>
+        <Description>
             <div>
-                <img
-                    className={s.profileImg}
-                    src={profile.photos.large || userPhoto}
-                    alt=""
-                />
+                <ProfileImage src={profile.photos.large || userPhoto} alt="" />
                 {isOwner && (
                     <div>
                         {/* <label htmlFor="inputFile">Upload photo</label> */}
-                        <input
-                            className={s.inputPhotos}
+                        <ChooseFileForm
                             name="inputFile"
                             type={'file'}
                             onChange={onMainPhotoSelect}
@@ -78,21 +80,9 @@ const Profileinfo: React.FC<PropsType> = ({
                     />
                 )}
 
-                <ProfileStatus
-                    status={
-                        status
-                        // ? (
-                        //     status
-                        // ) : (
-                        //     <div className={s.noStatusBar}>
-                        //         User Have No Status
-                        //     </div>
-                        // )
-                    }
-                    updateStatus={updateStatus}
-                />
+                <ProfileStatus status={status} updateStatus={updateStatus} />
             </div>
-        </div>
+        </Description>
     )
 }
 
@@ -108,7 +98,7 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({
     activateEditMode,
 }) => {
     return (
-        <div className={s.desc}>
+        <div>
             {isOwner && <button onClick={activateEditMode}>Edit</button>}
 
             <div>
@@ -130,7 +120,7 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({
                 <b>About me:</b> {profile.aboutMe}
             </div>
 
-            <div className={s.contacts}>
+            <Contacts>
                 <b>Contacts:</b>{' '}
                 {Object.keys(profile.contacts).map((key) => {
                     return (
@@ -143,7 +133,7 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({
                         />
                     )
                 })}
-            </div>
+            </Contacts>
         </div>
     )
 }
@@ -158,9 +148,9 @@ const Contact: React.FC<ContactPropsType> = ({
     contactValue,
 }) => {
     return (
-        <div className={s.contact}>
+        <StyledContact>
             {contactTitle}: {contactValue}
-        </div>
+        </StyledContact>
     )
 }
 

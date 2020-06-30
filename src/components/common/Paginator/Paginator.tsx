@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Paginator.module.css'
 import cn from 'classnames'
+import { StyledPaginator } from '../../../styles/App-styles'
+import { Button } from 'antd'
 
 type PropsType = {
     totalItemsCount: number
@@ -30,7 +32,7 @@ let Paginator: React.FC<PropsType> = ({
     let rightPortionPageNumber = portionNumber * portionSize
 
     return (
-        <div className={styles.paginator}>
+        <StyledPaginator>
             {portionNumber > 1 && (
                 <button
                     onClick={() => {
@@ -49,32 +51,35 @@ let Paginator: React.FC<PropsType> = ({
                 )
                 .map((p) => {
                     return (
-                        <span
-                            className={cn(
-                                {
-                                    [styles.selectedPage]: currentPage === p,
-                                },
-                                styles.pageNumber
-                            )}
+                        <StyledPaginator
+                            // FIX: className
+
+                            // currentPage={currentPage === p ? currentPage : ''}
+                            // className={cn(
+                            //     {
+                            //         [styles.selectedPage]: currentPage === p,
+                            //     },
+                            //     styles.pageNumber
+                            // )}
                             key={p}
                             onClick={(e) => {
                                 onPageChanged(p)
                             }}
                         >
                             {p}
-                        </span>
+                        </StyledPaginator>
                     )
                 })}
             {portionCount > portionNumber && (
-                <button
+                <Button
                     onClick={() => {
                         setPortionNumber(portionNumber + 1)
                     }}
                 >
                     NEXT
-                </button>
+                </Button>
             )}
-        </div>
+        </StyledPaginator>
     )
 }
 

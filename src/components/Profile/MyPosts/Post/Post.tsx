@@ -1,6 +1,7 @@
 import React from 'react'
-import s from './Post.module.css'
 import userphoto from '../../../../assets/images/USER.png'
+import { StyledPost } from '../../../../styles/Posts-styles'
+
 type PropsType = {
     message: string
     likesCount: number
@@ -8,14 +9,14 @@ type PropsType = {
 
 const Post: React.FC<PropsType> = (props) => {
     return (
-        <div className={s.item}>
+        <StyledPost>
             <h2>
                 {' '}
                 <img alt="" src={userphoto} />
                 {props.message}
             </h2>
             <p>Likes {props.likesCount}</p>
-        </div>
+        </StyledPost>
     )
 }
 

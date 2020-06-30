@@ -9,6 +9,8 @@ import {
     required,
 } from '../../../utils/validators/validators'
 import { NewMessageFormType } from '../Dialogues'
+import { Button } from 'antd'
+import Form from 'antd/lib/form/Form'
 
 const maxLength50 = MaxLenghtCreator(50)
 
@@ -22,7 +24,7 @@ const AddMessageForm: React.FC<InjectedFormProps<
 > &
     PropsType> = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <Form>
             <div>
                 {createField<NewMessageFormKeysValueType>(
                     'Enter your message',
@@ -32,9 +34,9 @@ const AddMessageForm: React.FC<InjectedFormProps<
                 )}
             </div>
             <div>
-                <button>Send</button>
+                <Button onClick={props.handleSubmit}>Send</Button>
             </div>
-        </form>
+        </Form>
     )
 }
 
