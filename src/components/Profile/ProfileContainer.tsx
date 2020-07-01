@@ -24,7 +24,7 @@ type DispatchPropsType = {
 }
 
 type PathParamsType = {
-    userId: string
+    UserId: string
 }
 
 type PropsType = MapPropsType &
@@ -33,19 +33,19 @@ type PropsType = MapPropsType &
 
 class ProfileContainer extends React.Component<PropsType> {
     refreshProfile() {
-        let userId: number | null = +this.props.match.params.userId
-        if (!userId) {
-            userId = this.props.loggedUserId
-            // todo: change history.push to Redirect
-            if (!userId) {
+        let UserId: number | null = +this.props.match.params.UserId
+        if (!UserId) {
+            UserId = this.props.loggedUserId
+            // TODO: change history.push to Redirect
+            if (!UserId) {
                 this.props.history.push('/login')
             }
         }
-        if (!userId) {
+        if (!UserId) {
             console.error('userId is missing in URI or state')
         } else {
-            this.props.getUserProfile(userId)
-            this.props.getStatus(userId)
+            this.props.getUserProfile(UserId)
+            this.props.getStatus(UserId)
         }
     }
 
@@ -54,7 +54,7 @@ class ProfileContainer extends React.Component<PropsType> {
     }
 
     componentDidUpdate(prevProps: PropsType, prevState: PropsType) {
-        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+        if (this.props.match.params.UserId !== prevProps.match.params.UserId) {
             this.refreshProfile()
         }
     }
@@ -64,7 +64,7 @@ class ProfileContainer extends React.Component<PropsType> {
             <div>
                 <Profile
                     {...this.props}
-                    isOwner={!this.props.match.params.userId}
+                    isOwner={!this.props.match.params.UserId}
                     profile={this.props.profile}
                     status={this.props.status}
                     updateStatus={this.props.updateStatus}

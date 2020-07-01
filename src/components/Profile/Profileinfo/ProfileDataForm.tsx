@@ -1,5 +1,6 @@
+import { Button } from 'antd'
 import React from 'react'
-import { Form, InjectedFormProps, reduxForm } from 'redux-form'
+import { InjectedFormProps, reduxForm } from 'redux-form'
 import { FormSummaryError } from '../../../styles/FormsControls-styles'
 import {
     Contacts,
@@ -14,53 +15,63 @@ import {
     RFTextarea,
 } from '../../common/FormsControls/FormsControls'
 
-const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
-    PropsType> = ({ handleSubmit, profile, error }) => {
+const ProfileDataForm: React.FC<
+    InjectedFormProps<ProfileType, PropsType> & PropsType
+> = ({ handleSubmit, profile, error }) => {
     return (
-        <Form onSubmit={handleSubmit}>
-            <button>Save</button>
+        // FIX:
+        <form onSubmit={handleSubmit}>
+            <Button onClick={handleSubmit}>Save</Button>
             {error && <FormSummaryError>{error}</FormSummaryError>}
             <SingleForm>
                 <b>Fullname:</b>{' '}
-                {createField<ProfileTypeKeys>(
-                    'Full name',
-                    'fullName',
-                    [],
-                    RFInput
-                )}
+                <div>
+                    {createField<ProfileTypeKeys>(
+                        'Full name',
+                        'fullName',
+                        [],
+                        RFInput
+                    )}
+                </div>
             </SingleForm>
 
             <SingleForm>
                 <b>Looking for a job:</b>{' '}
-                {createField<ProfileTypeKeys>(
-                    '',
-                    'lookingForAJob',
-                    [],
-                    RFInput,
-                    {
-                        type: 'checkbox',
-                    }
-                )}
+                <div>
+                    {createField<ProfileTypeKeys>(
+                        '',
+                        'lookingForAJob',
+                        [],
+                        RFInput,
+                        {
+                            type: 'checkbox',
+                        }
+                    )}
+                </div>
             </SingleForm>
 
             <SingleForm>
                 <b>Skills and background:</b>{' '}
-                {createField<ProfileTypeKeys>(
-                    'Skills and background',
-                    'lookingForAJobDescription',
-                    [],
-                    RFTextarea
-                )}
+                <div>
+                    {createField<ProfileTypeKeys>(
+                        'Skills and background',
+                        'lookingForAJobDescription',
+                        [],
+                        RFTextarea
+                    )}
+                </div>
             </SingleForm>
 
             <SingleForm>
                 <b>About me:</b>{' '}
-                {createField<ProfileTypeKeys>(
-                    'About me',
-                    'aboutMe',
-                    [],
-                    RFTextarea
-                )}
+                <div>
+                    {createField<ProfileTypeKeys>(
+                        'About me',
+                        'aboutMe',
+                        [],
+                        RFTextarea
+                    )}
+                </div>
             </SingleForm>
 
             <Contacts>
@@ -75,7 +86,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> &
                     )
                 })}
             </Contacts>
-        </Form>
+        </form>
     )
 }
 

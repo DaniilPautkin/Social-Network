@@ -39,6 +39,6 @@ let store = createStore(rootReducers, compose(
 ))
 
 //@ts-ignore
-window.__store__ = store //get store from console.log(store.getState()...)
+window.__store__ = store
 
 export default store

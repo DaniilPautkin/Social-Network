@@ -22,11 +22,10 @@ type LoginFormOwnProps = {
     captchaUrl: string | null
 }
 
-const LoginForm: React.FC<InjectedFormProps<
-    LoginFormValuesType,
-    LoginFormOwnProps
-> &
-    LoginFormOwnProps> = ({ handleSubmit, error, captchaUrl, children }) => {
+const LoginForm: React.FC<
+    InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> &
+        LoginFormOwnProps
+> = ({ handleSubmit, error, captchaUrl, children }) => {
     return (
         <StyledLoginForm>
             <Text>Login</Text>

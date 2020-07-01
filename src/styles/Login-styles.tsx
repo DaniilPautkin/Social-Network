@@ -9,6 +9,9 @@ export const StyledLoginForm = styled(Form)`
     align-items: center;
     flex-direction: column;
     width: 100%;
+    Input {
+        margin: 10px 0px 10px 0px;
+    }
 `
 
 export const SubmitLoginButton = styled(Button)``

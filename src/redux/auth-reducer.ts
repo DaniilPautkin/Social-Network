@@ -1,9 +1,8 @@
-import { ResultCodeForCaptcha, ResultCodesEnum } from './../api/api'
-import { stopSubmit, ActionTypes } from 'redux-form'
+import { stopSubmit } from 'redux-form'
 import { authAPI } from '../api/auth-api'
 import { securityAPI } from '../api/security-api'
+import { ResultCodeForCaptcha, ResultCodesEnum } from './../api/api'
 import { BasicThunkType, InferActionsTypes } from './redux-store'
-import { Action } from 'redux'
 
 let initialState = {
     userId: null as number | null,
@@ -37,11 +36,11 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 export const actions = {
     setAuthUserData: (
         userId: number | null,
-        email: string | null,
         login: string | null,
+        email: string | null,
         isAuth: boolean) => ({
             type: 'SN/auth/SET-AUTH-USER-DATA',
-            payload: { userId, email, login, isAuth }
+            payload: { userId, login, email, isAuth }
         } as const),
     getCaptchaUrlSuccess: (captchaUrl: string) => ({
         type: 'SN/security/GET-CAPTCHA-URL-SUCCESS',

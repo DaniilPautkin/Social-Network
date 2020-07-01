@@ -1,8 +1,6 @@
 import React from 'react'
-import s from './Header.module.css'
 import { NavLink } from 'react-router-dom'
-import { Button } from 'antd'
-import { StyledHeader, AuthContainer, Logo } from '../../styles/Header-styles'
+import { AuthContainer, Logo, StyledHeader } from '../../styles/Header-styles'
 import { LogoutButton, SubmitLoginButton } from '../../styles/Login-styles'
 
 export type MapPropsType = {

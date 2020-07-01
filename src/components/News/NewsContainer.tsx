@@ -1,8 +1,7 @@
 import React from 'react'
-import s from './News.module.css'
+import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
-import { connect } from 'react-redux'
 import News from './News'
 
 class NewsContainer extends React.Component<any> {

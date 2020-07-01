@@ -1,8 +1,7 @@
 import React from 'react'
-import s from './Music.module.css'
+import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
-import { connect } from 'react-redux'
 import Music from './Music'
 
 class MusicContainer extends React.Component {

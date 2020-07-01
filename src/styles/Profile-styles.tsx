@@ -1,4 +1,9 @@
 import styled from 'styled-components'
+import { Input } from 'antd'
+import { Colors } from './App-styles'
+import Form from 'antd/lib/form/Form'
+import Text from 'antd/lib/typography/Text'
+import { Field } from 'redux-form'
 
 export const MissingStatusBar = styled.div`
     margin: 5px;
@@ -29,12 +34,28 @@ export const SingleForm = styled.div`
     align-items: center;
 `
 
-export const ChooseFileForm = styled.input`
+export const ChooseFileForm = styled(Input)`
     cursor: pointer;
+    width: 300px;
+    border-radius: 10px;
+    margin: 10px;
+    color: rgba(0, 0, 0, 0.7);
+
+    ::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+    :focus {
+        background: ${Colors.greenColor};
+        color: #fff;
+    }
+    ::before {
+        content: 'Select...';
+    }
+    ::after {
+        content: '';
+    }
     :hover {
-        color: #ffffff;
-        background: #004e49;
-        /* box-shadow: inset 5px 5px 10px #c4c4c4, inset -5px -5px 10px #ffffff; */
+        /* color: ${Colors.greenColor}; */
         cursor: pointer;
     }
 `
@@ -42,18 +63,67 @@ export const ChooseFileForm = styled.input`
 export const Contacts = styled.div`
     display: flex;
     flex-direction: column;
+    /* display: grid; */
+    /* grid-template-areas: 'contact input'; */
 `
 
 export const StyledContact = styled.div`
-    padding: 5px;
+    /* grid-area: contact; */
+    padding: 2px 5px 2px;
     border-radius: 2px;
     margin-left: 10px;
+    display: flex;
+    align-items: flex-start;
+    Input {
+        width: 400px;
+    }
+`
+
+export const ContactInputField = styled(Field)`
+    grid-area: input;
 `
 export const ProfileContainer = styled.div`
     border-radius: 5px;
     grid-area: cont;
 `
 
+export const ContactTitle = styled.div`
+    font-weight: 600;
+`
+
 export const StatusLine = styled.div`
-    color: #f1f1f1;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 17px;
+    font-weight: 600px;
+`
+
+export const StyledAddPostForm = styled(Form)`
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+`
+
+export const Likes = styled(Text)`
+    color: rgba(0, 0, 0, 0.5);
+`
+
+export const StyledSpan = styled.span`
+    cursor: pointer;
+    margin-left: 10px;
+`
+
+export const Status = styled.div`
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
+
+export const ProfileInfoItem = styled.div`
+    display: flex;
+    flex-direction: row;
+    b {
+        margin-right: 5px;
+        color: rgba(0, 0, 0, 0.5);
+    }
 `

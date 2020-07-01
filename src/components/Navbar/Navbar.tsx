@@ -1,9 +1,7 @@
 import React from 'react'
-import s from './Navbar.module.css'
-import { NavLink } from 'react-router-dom'
 import {
-    StyledNavBar,
     NavItem,
+    StyledNavBar,
     StyledNavnarNavLink,
 } from '../../styles/Navbar-styles'
 

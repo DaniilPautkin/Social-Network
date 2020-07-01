@@ -1,8 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import userPhoto from '../../assets/images/USER.png'
-import { UserContainer, UserPhoto } from '../../styles/Users-styles'
+import {
+    UserContainer,
+    UserPhoto,
+    UserName,
+    UserInfo,
+} from '../../styles/Users-styles'
 import { UserType } from '../../types/types'
+import { Button } from 'antd'
+import Text from 'antd/lib/typography/Text'
 
 type PropsType = {
     user: UserType
@@ -32,12 +39,12 @@ let User: React.FC<PropsType> = ({
                 </NavLink>
             </div>
             <div>
-                <span>
-                    <div>{user.name}</div>
-                    <div>{user.status}</div>
-                </span>
+                <UserInfo>
+                    <UserName>{user.name}</UserName>
+                    {user.status ? <Text code>{user.status}</Text> : ''}
+                </UserInfo>
                 {user.followed ? (
-                    <button
+                    <Button
                         disabled={followingInProgress.some(
                             (id) => id === user.id
                         )}
@@ -46,9 +53,9 @@ let User: React.FC<PropsType> = ({
                         }}
                     >
                         Unfollow
-                    </button>
+                    </Button>
                 ) : (
-                    <button
+                    <Button
                         disabled={followingInProgress.some(
                             (id) => id === user.id
                         )}
@@ -57,7 +64,7 @@ let User: React.FC<PropsType> = ({
                         }}
                     >
                         Follow
-                    </button>
+                    </Button>
                 )}
             </div>
         </UserContainer>

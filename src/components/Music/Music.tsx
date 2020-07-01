@@ -1,6 +1,5 @@
-import React from 'react'
-import s from './Music.module.css'
 import Text from 'antd/lib/typography/Text'
+import React from 'react'
 
 const Music: React.FC<any> = () => {
     return <Text code>In Progress</Text>

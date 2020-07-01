@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { Colors } from './App-styles'
 
 export const StyledNavBar = styled.div`
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
     padding: 20px;
     grid-auto-flow: row;
-    background: #1f2833;
+    background: ${Colors.mainColor};
     grid-area: navbar;
 
     @media screen and (max-width: 900px) {
@@ -21,14 +22,16 @@ export const StyledNavnarNavLink = styled(NavLink)`
 
     :hover {
         padding-left: 5px;
-        border-left: 1px solid #66fcf1;
+        border-left: 1px solid ${Colors.lightGreen};
         transition: 0.1s ease-in;
-        color: #66fcf1;
+        color: ${Colors.lightGreen};
     }
-
+    :active {
+        color: ${Colors.lightGreen};
+    }
     .active {
         padding-left: 10px;
-        border-left: 3px solid #66fcf1;
-        color: #379683;
+        border-left: 3px solid ${Colors.lightGreen};
+        color: ${Colors.lightGreen};
     }
 `

@@ -1,16 +1,16 @@
+import { Button } from 'antd'
+import Form from 'antd/lib/form/Form'
 import React from 'react'
-import { Field, reduxForm, InjectedFormProps } from 'redux-form'
-import {
-    RFTextarea,
-    createField,
-} from '../../common/FormsControls/FormsControls'
+import { InjectedFormProps, reduxForm } from 'redux-form'
 import {
     MaxLenghtCreator,
     required,
 } from '../../../utils/validators/validators'
+import {
+    createField,
+    RFTextarea,
+} from '../../common/FormsControls/FormsControls'
 import { NewMessageFormType } from '../Dialogues'
-import { Button } from 'antd'
-import Form from 'antd/lib/form/Form'
 
 const maxLength50 = MaxLenghtCreator(50)
 
@@ -18,11 +18,9 @@ type NewMessageFormKeysValueType = Extract<keyof NewMessageFormType, string>
 
 type PropsType = {}
 
-const AddMessageForm: React.FC<InjectedFormProps<
-    NewMessageFormType,
-    PropsType
-> &
-    PropsType> = (props) => {
+const AddMessageForm: React.FC<
+    InjectedFormProps<NewMessageFormType, PropsType> & PropsType
+> = (props) => {
     return (
         <Form>
             <div>

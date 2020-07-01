@@ -21,10 +21,6 @@ const appReducer = (state = initialState, action: ActionsType): InitialStateType
     }
 }
 
-// export const initializingSuccess = (): InitialSuccessActionType => ({
-//     type: INITIALIZED_SUCCESS
-// })
-
 export const actions = {
     initializingSuccess: () => ({
         type: 'SN/APP/SET-INITIALIZED'

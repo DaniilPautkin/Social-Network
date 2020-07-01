@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import styles from './Paginator.module.css'
 import cn from 'classnames'
-import { StyledPaginator } from '../../../styles/App-styles'
+import {
+    StyledPaginator,
+    StyledPaginatorPage,
+    Page,
+} from '../../../styles/App-styles'
+import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 
 type PropsType = {
@@ -32,54 +37,56 @@ let Paginator: React.FC<PropsType> = ({
     let rightPortionPageNumber = portionNumber * portionSize
 
     return (
-        <StyledPaginator>
+        <StyledPaginatorPage>
             {portionNumber > 1 && (
-                <button
+                <Button
                     onClick={() => {
                         setPortionNumber(portionNumber - 1)
                     }}
                 >
-                    PREV
-                </button>
+                    <CaretLeftOutlined />
+                </Button>
             )}
-
-            {pages
-                .filter(
-                    (p) =>
-                        p >= leftPortionPageNumber &&
-                        p <= rightPortionPageNumber
-                )
-                .map((p) => {
-                    return (
-                        <StyledPaginator
-                            // FIX: className
-
-                            // currentPage={currentPage === p ? currentPage : ''}
-                            // className={cn(
-                            //     {
-                            //         [styles.selectedPage]: currentPage === p,
-                            //     },
-                            //     styles.pageNumber
-                            // )}
-                            key={p}
-                            onClick={(e) => {
-                                onPageChanged(p)
-                            }}
-                        >
-                            {p}
-                        </StyledPaginator>
+            <StyledPaginator>
+                {pages
+                    .filter(
+                        (p) =>
+                            p >= leftPortionPageNumber &&
+                            p <= rightPortionPageNumber
                     )
-                })}
+                    .map((p) => {
+                        return (
+                            <div
+                                // FIX: className
+
+                                // currentPage={currentPage === p ? currentPage : ''}
+                                className={cn(
+                                    {
+                                        [styles.selectedPage]:
+                                            currentPage === p,
+                                    },
+                                    styles.pageNumber
+                                )}
+                                key={p}
+                                onClick={(e) => {
+                                    onPageChanged(p)
+                                }}
+                            >
+                                <Page>{p}</Page>
+                            </div>
+                        )
+                    })}
+            </StyledPaginator>
             {portionCount > portionNumber && (
                 <Button
                     onClick={() => {
                         setPortionNumber(portionNumber + 1)
                     }}
                 >
-                    NEXT
+                    <CaretRightOutlined />
                 </Button>
             )}
-        </StyledPaginator>
+        </StyledPaginatorPage>
     )
 }
 

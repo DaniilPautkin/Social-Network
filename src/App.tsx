@@ -10,7 +10,6 @@ import {
     withRouter,
 } from 'react-router-dom'
 import { compose } from 'redux'
-import './App.css'
 import Preloader from './components/common/Preloader/Preloader'
 import HeaderContainer from './components/Header/HeaderContainer'
 import Login from './components/Login/Login'

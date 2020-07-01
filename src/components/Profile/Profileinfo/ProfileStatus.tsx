@@ -1,5 +1,7 @@
+import { Input } from 'antd'
+import Text from 'antd/lib/typography/Text'
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { StatusLine } from '../../../styles/Profile-styles'
+import { Status, StatusLine, StyledSpan } from '../../../styles/Profile-styles'
 
 type PropsType = {
     updateStatus: (newStatus: string) => void
@@ -25,27 +27,27 @@ const ProfileStatus = (props: PropsType) => {
 
     useEffect(() => {
         setStatus(props.status)
-    }, [])
+    }, [props.status])
 
     return (
         <div>
             {!editMode && (
-                <div>
+                <Status>
                     <StatusLine>Status: </StatusLine>
-                    <span onDoubleClick={activateEditMode}>
-                        {props.status || '-------'}
-                    </span>
-                </div>
+                    <StyledSpan onDoubleClick={activateEditMode}>
+                        {props.status || <Text code>No status</Text>}
+                    </StyledSpan>
+                </Status>
             )}
             {editMode && (
-                <div>
+                <Status>
                     <StatusLine>Status: </StatusLine>
-                    <input
+                    <Input
                         onChange={onStatusChange}
                         onBlur={deactivateEditMode}
                         value={status}
                     />
-                </div>
+                </Status>
             )}
         </div>
     )

@@ -1,17 +1,19 @@
-import React, { useState, ChangeEvent } from 'react'
-import s from './Profileinfo.module.css'
-import Preloader from '../../common/Preloader/Preloader'
-import ProfileStatus from './ProfileStatus'
-import ProfileDataFormReduxForm from './ProfileDataForm'
+import { Button } from 'antd'
+import React, { ChangeEvent, useState } from 'react'
 import userPhoto from '../../../assets/images/USER.png'
-import { ProfileType, ContactsType } from '../../../types/types'
 import {
-    Description,
-    Contacts,
-    StyledContact,
-    ProfileImage,
     ChooseFileForm,
+    Contacts,
+    ContactTitle,
+    Description,
+    ProfileImage,
+    ProfileInfoItem,
+    StyledContact,
 } from '../../../styles/Profile-styles'
+import { ContactsType, ProfileType } from '../../../types/types'
+import Preloader from '../../common/Preloader/Preloader'
+import ProfileDataFormReduxForm from './ProfileDataForm'
+import ProfileStatus from './ProfileStatus'
 
 type PropsType = {
     isOwner: boolean
@@ -43,7 +45,7 @@ const Profileinfo: React.FC<PropsType> = ({
     }
 
     const onSubmit = (formData: ProfileType) => {
-        // todo: remove then
+        // TODO: remove then
         saveProfile(formData).then(() => {
             setEditMode(false)
         })
@@ -99,26 +101,26 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({
 }) => {
     return (
         <div>
-            {isOwner && <button onClick={activateEditMode}>Edit</button>}
+            {isOwner && <Button onClick={activateEditMode}>Edit</Button>}
 
-            <div>
-                <b>Fullname:</b> {profile.fullName}
-            </div>
+            <ProfileInfoItem>
+                <b>Fullname:</b> <div>{profile.fullName}</div>
+            </ProfileInfoItem>
 
-            <div>
+            <ProfileInfoItem>
                 <b>Looking for a job:</b>{' '}
-                {profile.lookingForAJob ? 'yes' : 'no'}
-            </div>
-            <div>
+                <div>{profile.lookingForAJob ? 'yes' : 'no'}</div>
+            </ProfileInfoItem>
+            <ProfileInfoItem>
                 <b>Skills and background:</b>{' '}
                 {profile.lookingForAJob && (
                     <div>{profile.lookingForAJobDescription}</div>
                 )}
-            </div>
+            </ProfileInfoItem>
 
-            <div>
+            <ProfileInfoItem>
                 <b>About me:</b> {profile.aboutMe}
-            </div>
+            </ProfileInfoItem>
 
             <Contacts>
                 <b>Contacts:</b>{' '}
@@ -149,7 +151,7 @@ const Contact: React.FC<ContactPropsType> = ({
 }) => {
     return (
         <StyledContact>
-            {contactTitle}: {contactValue}
+            <ContactTitle>{contactTitle}: </ContactTitle> {contactValue}
         </StyledContact>
     )
 }

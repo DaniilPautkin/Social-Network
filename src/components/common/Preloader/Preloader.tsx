@@ -1,5 +1,4 @@
 import React from 'react'
-import s from './Preloader.module.css'
 import preloader from '../../../assets/images/giphy.gif'
 import { StyledPreloader } from '../../../styles/App-styles'
 

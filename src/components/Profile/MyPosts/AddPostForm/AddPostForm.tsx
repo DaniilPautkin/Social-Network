@@ -1,5 +1,7 @@
+import { Button } from 'antd'
 import React from 'react'
 import { InjectedFormProps, reduxForm } from 'redux-form'
+import { StyledAddPostForm } from '../../../../styles/Profile-styles'
 import { required } from '../../../../utils/validators/validators'
 import {
     createField,
@@ -15,10 +17,11 @@ export type AddPostValuesType = {
 
 type AddPostFormValuesTypeKeys = GetStringKeys<AddPostValuesType>
 
-const AddPostForm: React.FC<InjectedFormProps<AddPostValuesType, PropsType> &
-    PropsType> = (props) => {
+const AddPostForm: React.FC<
+    InjectedFormProps<AddPostValuesType, PropsType> & PropsType
+> = (props) => {
     return (
-        <form action="" onSubmit={props.handleSubmit}>
+        <StyledAddPostForm>
             <div>
                 {createField<AddPostFormValuesTypeKeys>(
                     'Post',
@@ -28,9 +31,9 @@ const AddPostForm: React.FC<InjectedFormProps<AddPostValuesType, PropsType> &
                 )}
             </div>
             <div>
-                <button>post</button>
+                <Button onClick={props.handleSubmit}>post</Button>
             </div>
-        </form>
+        </StyledAddPostForm>
     )
 }
 export default reduxForm<AddPostValuesType, PropsType>({

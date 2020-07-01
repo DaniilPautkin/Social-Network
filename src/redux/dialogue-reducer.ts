@@ -3,7 +3,7 @@ import { InferActionsTypes } from './redux-store';
 
 let initialState = {
     dialoguesData: [
-        { id: 0, name: 'Todo' },
+        { id: 0, name: 'Dummy' },
         { id: 1, name: 'Messages' }
         // { id: 0, name: "dimych" },
         // { id: 1, name: "Sveta" },
@@ -12,9 +12,9 @@ let initialState = {
         // { id: 4, name: "Velar" }
     ] as Array<DialogueType>,
     messagesData: [
-        { id: 0, message: "1" },
-        { id: 1, message: "2" },
-        { id: 2, message: "3" },
+        { id: 0, message: "Still" },
+        { id: 1, message: "In" },
+        { id: 2, message: "Progress" },
     ] as Array<MessageType>
 }
 

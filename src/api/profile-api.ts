@@ -1,5 +1,5 @@
 import { SavePhotoResponseDataType } from './../redux/profile-reducer';
-import { ProfileType, PhotosType } from './../types/types';
+import { ProfileType } from './../types/types';
 import { instance, ResponseType } from './api';
 
 export const profileAPI = {

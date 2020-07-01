@@ -1,6 +1,7 @@
 import React from 'react'
 import userphoto from '../../../../assets/images/USER.png'
-import { StyledPost } from '../../../../styles/Posts-styles'
+import { StyledPost, PostImg } from '../../../../styles/Posts-styles'
+import { Likes } from '../../../../styles/Profile-styles'
 
 type PropsType = {
     message: string
@@ -12,10 +13,10 @@ const Post: React.FC<PropsType> = (props) => {
         <StyledPost>
             <h2>
                 {' '}
-                <img alt="" src={userphoto} />
+                <PostImg alt="" src={userphoto} />
                 {props.message}
             </h2>
-            <p>Likes {props.likesCount}</p>
+            <Likes>Likes {props.likesCount}</Likes>
         </StyledPost>
     )
 }

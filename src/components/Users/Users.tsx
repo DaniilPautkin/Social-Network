@@ -1,7 +1,8 @@
 import React from 'react'
+import { StyledUsersContainer, UsersPage } from '../../styles/Users-styles'
+import { UserType } from '../../types/types'
 import Paginator from '../common/Paginator/Paginator'
 import User from './User'
-import { UserType } from '../../types/types'
 
 type UsersType = {
     totalUsersCount: number
@@ -24,14 +25,14 @@ let Users: React.FC<UsersType> = ({
     ...props
 }) => {
     return (
-        <div>
+        <UsersPage>
             <Paginator
                 currentPage={currentPage}
                 onPageChanged={onPageChanged}
                 totalItemsCount={totalUsersCount}
                 pageSize={pageSize}
             />
-            <div>
+            <StyledUsersContainer>
                 {users.map((u) => (
                     <User
                         user={u}
@@ -41,8 +42,8 @@ let Users: React.FC<UsersType> = ({
                         follow={props.follow}
                     />
                 ))}
-            </div>
-        </div>
+            </StyledUsersContainer>
+        </UsersPage>
     )
 }
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Input } from 'antd'
 
 export const PostsContainer = styled.div`
     padding: 10px;
@@ -6,7 +7,7 @@ export const PostsContainer = styled.div`
 
 export const PostElemets = styled.div``
 
-export const PostInput = styled.input`
+export const PostInput = styled(Input)`
     display: flex;
     flex-direction: row;
     align-items: flex-start;

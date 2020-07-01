@@ -1,7 +1,7 @@
-import { InferActionsTypes, BasicThunkType } from './redux-store';
-import { PostType, ProfileType, PhotosType } from './../types/types'
-import { profileAPI } from "../api/profile-api"
-import { stopSubmit, FormAction } from "redux-form"
+import { FormAction, stopSubmit } from "redux-form";
+import { profileAPI } from "../api/profile-api";
+import { PhotosType, PostType, ProfileType } from './../types/types';
+import { BasicThunkType, InferActionsTypes } from './redux-store';
 
 export type SavePhotoResponseDataType = {
     photos: PhotosType
@@ -9,8 +9,8 @@ export type SavePhotoResponseDataType = {
 
 let initialState = {
     posts: [
-        { id: 0, message: "Message", likesCount: 0 },
-        { id: 1, message: "Todo", likesCount: 55 }
+        { id: 0, message: "Dummy", likesCount: 0 },
+        { id: 1, message: "Data", likesCount: 55 }
     ] as Array<PostType>,
     profile: null as ProfileType | null,
     status: '',
@@ -40,7 +40,7 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
                 ...state, status: action.status
             }
         case 'SN/PROFILE/DELETE-POST':
-            return { ...state, posts: state.posts.filter(p => p.id != action.postId) }
+            return { ...state, posts: state.posts.filter(p => p.id !== action.postId) }
 
         case 'SN/PROFILE/SAVE-PHOTO-SUCCESS':
             return { ...state, profile: { ...state.profile, photos: action.photos } as ProfileType }

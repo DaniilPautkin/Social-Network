@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export const StyledHeader = styled.div`
     z-index: 1;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     flex-direction: row;
     align-items: center;
     display: flex;
@@ -23,9 +23,10 @@ export const StyledHeader = styled.div`
     }
 `
 
-export const AuthContainer = styled.a`
+export const AuthContainer = styled.div`
     text-decoration: none;
     color: #ffffff;
+    margin: 0px 5px 0px 5px;
 `
 
 export const LoginLink = styled(NavLink)`
