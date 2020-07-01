@@ -51,6 +51,7 @@ export const actions = {
 
 export const getAuthUserData = (): ThunkType => async (dispatch) => {
     let meData = await authAPI.me()
+    console.log("getAuthUserData -> meData", meData)
 
     if (meData.resultCode === ResultCodesEnum.Success) {
         //if we ARE authorised we set isAuth = true

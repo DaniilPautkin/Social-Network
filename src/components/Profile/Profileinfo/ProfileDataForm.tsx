@@ -1,11 +1,12 @@
 import { Button } from 'antd'
+import Text from 'antd/lib/typography/Text'
 import React from 'react'
 import { InjectedFormProps, reduxForm } from 'redux-form'
 import { FormSummaryError } from '../../../styles/FormsControls-styles'
 import {
-    Contacts,
+    EditContacts,
+    EditStyledContact,
     SingleForm,
-    StyledContact,
 } from '../../../styles/Profile-styles'
 import { ProfileType } from '../../../types/types'
 import {
@@ -13,6 +14,7 @@ import {
     GetStringKeys,
     RFInput,
     RFTextarea,
+    RFCheckbox,
 } from '../../common/FormsControls/FormsControls'
 
 const ProfileDataForm: React.FC<
@@ -36,13 +38,13 @@ const ProfileDataForm: React.FC<
             </SingleForm>
 
             <SingleForm>
-                <b>Looking for a job:</b>{' '}
                 <div>
+                    <b>Looking for a job:</b>{' '}
                     {createField<ProfileTypeKeys>(
                         '',
                         'lookingForAJob',
                         [],
-                        RFInput,
+                        RFCheckbox,
                         {
                             type: 'checkbox',
                         }
@@ -74,18 +76,18 @@ const ProfileDataForm: React.FC<
                 </div>
             </SingleForm>
 
-            <Contacts>
+            <EditContacts>
                 <b>Contacts:</b>{' '}
                 {Object.keys(profile.contacts).map((key) => {
                     // TODO: create some solution for embedded objects
                     return (
-                        <StyledContact key={key}>
-                            <b>{key}: </b>
+                        <EditStyledContact key={key}>
+                            <Text code>{key}: </Text>
                             {createField(key, 'contacts.' + key, [], RFInput)}
-                        </StyledContact>
+                        </EditStyledContact>
                     )
                 })}
-            </Contacts>
+            </EditContacts>
         </form>
     )
 }

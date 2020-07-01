@@ -7,7 +7,10 @@ export const DialoguesContainer = styled.div`
     display: grid;
     grid-template-columns: 3fr 8fr;
 `
-
+export const StyledAddMessageForm = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 export const StyledDialogues = styled.div``
 
 export const DialogueNavLink = styled(NavLink)`
@@ -18,6 +21,10 @@ export const DialogueNavLink = styled(NavLink)`
     .active {
         color: tomato;
     }
+`
+
+export const AddMessageFormButtonContainer = styled.div`
+    margin-left: 5px;
 `
 
 export const MessagesContainer = styled.div``

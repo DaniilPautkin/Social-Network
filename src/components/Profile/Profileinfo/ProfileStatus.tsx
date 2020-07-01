@@ -1,7 +1,11 @@
-import { Input } from 'antd'
 import Text from 'antd/lib/typography/Text'
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Status, StatusLine, StyledSpan } from '../../../styles/Profile-styles'
+import {
+    Status,
+    StatusLine,
+    StyledSpan,
+    StyledStatusInput,
+} from '../../../styles/Profile-styles'
 
 type PropsType = {
     updateStatus: (newStatus: string) => void
@@ -42,7 +46,7 @@ const ProfileStatus = (props: PropsType) => {
             {editMode && (
                 <Status>
                     <StatusLine>Status: </StatusLine>
-                    <Input
+                    <StyledStatusInput
                         onChange={onStatusChange}
                         onBlur={deactivateEditMode}
                         value={status}

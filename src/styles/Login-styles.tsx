@@ -33,7 +33,3 @@ export const Captcha = styled.img`
     margin: 10px 0px 10px 0px;
     border-radius: 10px;
 `
-
-export const LogoutButton = styled(Button)``
-
-export const LoginButton = styled(Button)``

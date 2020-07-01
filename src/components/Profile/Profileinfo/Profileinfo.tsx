@@ -1,6 +1,6 @@
-import { Button } from 'antd'
 import React, { ChangeEvent, useState } from 'react'
 import userPhoto from '../../../assets/images/USER.png'
+import { StyledButton } from '../../../styles/App-styles'
 import {
     ChooseFileForm,
     Contacts,
@@ -101,7 +101,9 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({
 }) => {
     return (
         <div>
-            {isOwner && <Button onClick={activateEditMode}>Edit</Button>}
+            {isOwner && (
+                <StyledButton onClick={activateEditMode}>Edit</StyledButton>
+            )}
 
             <ProfileInfoItem>
                 <b>Fullname:</b> <div>{profile.fullName}</div>

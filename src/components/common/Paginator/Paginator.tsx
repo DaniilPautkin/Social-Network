@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import styles from './Paginator.module.css'
+import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons'
 import cn from 'classnames'
+import React, { useState } from 'react'
 import {
+    Page,
+    StyledButton,
     StyledPaginator,
     StyledPaginatorPage,
-    Page,
 } from '../../../styles/App-styles'
-import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons'
-import { Button } from 'antd'
+import styles from './Paginator.module.css'
 
 type PropsType = {
     totalItemsCount: number
@@ -39,13 +39,13 @@ let Paginator: React.FC<PropsType> = ({
     return (
         <StyledPaginatorPage>
             {portionNumber > 1 && (
-                <Button
+                <StyledButton
                     onClick={() => {
                         setPortionNumber(portionNumber - 1)
                     }}
                 >
                     <CaretLeftOutlined />
-                </Button>
+                </StyledButton>
             )}
             <StyledPaginator>
                 {pages
@@ -78,13 +78,13 @@ let Paginator: React.FC<PropsType> = ({
                     })}
             </StyledPaginator>
             {portionCount > portionNumber && (
-                <Button
+                <StyledButton
                     onClick={() => {
                         setPortionNumber(portionNumber + 1)
                     }}
                 >
                     <CaretRightOutlined />
-                </Button>
+                </StyledButton>
             )}
         </StyledPaginatorPage>
     )

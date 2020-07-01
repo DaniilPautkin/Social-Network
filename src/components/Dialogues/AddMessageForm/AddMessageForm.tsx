@@ -1,7 +1,10 @@
-import { Button } from 'antd'
-import Form from 'antd/lib/form/Form'
 import React from 'react'
 import { InjectedFormProps, reduxForm } from 'redux-form'
+import { StyledButton } from '../../../styles/App-styles'
+import {
+    StyledAddMessageForm,
+    AddMessageFormButtonContainer,
+} from '../../../styles/Dialogues-styles'
 import {
     MaxLenghtCreator,
     required,
@@ -22,7 +25,7 @@ const AddMessageForm: React.FC<
     InjectedFormProps<NewMessageFormType, PropsType> & PropsType
 > = (props) => {
     return (
-        <Form>
+        <StyledAddMessageForm>
             <div>
                 {createField<NewMessageFormKeysValueType>(
                     'Enter your message',
@@ -31,10 +34,10 @@ const AddMessageForm: React.FC<
                     RFTextarea
                 )}
             </div>
-            <div>
-                <Button onClick={props.handleSubmit}>Send</Button>
-            </div>
-        </Form>
+            <AddMessageFormButtonContainer>
+                <StyledButton onClick={props.handleSubmit}>Send</StyledButton>
+            </AddMessageFormButtonContainer>
+        </StyledAddMessageForm>
     )
 }
 

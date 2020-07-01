@@ -3,9 +3,12 @@ import { Field, WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form'
 import {
     StyledInput,
     StyledTextArea,
+    StyledField,
+    StyledCheckbox,
 } from '../../../styles/FormsControls-styles'
 import { FieldValidatorType } from '../../../utils/validators/validators'
 import s from './FormsControl.module.css'
+import Text from 'antd/lib/typography/Text'
 
 type FormControlPropsType = {
     meta: WrappedFieldMetaProps
@@ -45,6 +48,15 @@ export const RFInput = (props: any) => {
     )
 }
 
+export const RFCheckbox = (props: any) => {
+    const { input, meta, ...restProps } = props
+    return (
+        <FormControl {...props}>
+            <StyledCheckbox {...input} {...restProps} />
+        </FormControl>
+    )
+}
+
 export function createField<FormKeysType extends string>(
     placeholder: string | undefined,
     name: FormKeysType,
@@ -54,7 +66,8 @@ export function createField<FormKeysType extends string>(
     text?: string
 ) {
     return (
-        <div>
+        <StyledField>
+            {!!text ? <Text>{text}</Text> : ''}
             <Field
                 placeholder={placeholder}
                 name={name}
@@ -62,8 +75,7 @@ export function createField<FormKeysType extends string>(
                 validate={validators}
                 {...props}
             />
-            {text}
-        </div>
+        </StyledField>
     )
 }
 

@@ -1,16 +1,12 @@
-import Text from 'antd/lib/typography/Text'
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { InjectedFormProps, reduxForm } from 'redux-form'
 import { login } from '../../redux/auth-reducer'
 import { AppStateType } from '../../redux/redux-store'
+import { StyledButton } from '../../styles/App-styles'
 import { FormSummaryError } from '../../styles/FormsControls-styles'
-import {
-    Captcha,
-    StyledLoginForm,
-    SubmitLoginButton,
-} from '../../styles/Login-styles'
+import { Captcha, StyledLoginForm } from '../../styles/Login-styles'
 import { required } from '../../utils/validators/validators'
 import {
     createField,
@@ -28,12 +24,14 @@ const LoginForm: React.FC<
 > = ({ handleSubmit, error, captchaUrl, children }) => {
     return (
         <StyledLoginForm>
-            <Text>Login</Text>
+            {/* <Text>Login</Text> */}
             {createField<LoginFormValuesTypeKeys>(
                 'Email',
                 'email',
                 [required],
-                RFInput
+                RFInput,
+                {},
+                'Email'
             )}
             {createField<LoginFormValuesTypeKeys>(
                 'Password',
@@ -42,14 +40,15 @@ const LoginForm: React.FC<
                 RFInput,
                 {
                     type: 'password',
-                }
+                },
+                'Password'
             )}
             {/* {createField<LoginFormValuesTypeKeys>(
                 undefined,
                 'rememberMe',
                 [],
-                Input,
-                { type: 'checkbox' },
+                RFCheckbox,
+                {},
                 'remember me'
             )} */}
 
@@ -66,9 +65,7 @@ const LoginForm: React.FC<
                     )}
             </div>
             <div>
-                <SubmitLoginButton onClick={handleSubmit}>
-                    Login
-                </SubmitLoginButton>
+                <StyledButton onClick={handleSubmit}>Login</StyledButton>
             </div>
         </StyledLoginForm>
     )
@@ -102,7 +99,7 @@ export type LoginFormValuesType = {
 type LoginFormValuesTypeKeys = GetStringKeys<LoginFormValuesType>
 
 const Login: React.FC<MapStateToPropsType & MapDispatchPropsType> = (props) => {
-    const onSubmit = (formData: LoginFormValuesType) => {
+    const submit = (formData: LoginFormValuesType) => {
         props.login(
             formData.email,
             formData.password,
@@ -117,7 +114,7 @@ const Login: React.FC<MapStateToPropsType & MapDispatchPropsType> = (props) => {
 
     return (
         <div>
-            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
+            <LoginReduxForm onSubmit={submit} captchaUrl={props.captchaUrl} />
         </div>
     )
 }

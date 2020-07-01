@@ -1,6 +1,6 @@
-import { Button } from 'antd'
 import React from 'react'
 import { InjectedFormProps, reduxForm } from 'redux-form'
+import { StyledButton } from '../../../../styles/App-styles'
 import { StyledAddPostForm } from '../../../../styles/Profile-styles'
 import { required } from '../../../../utils/validators/validators'
 import {
@@ -31,7 +31,7 @@ const AddPostForm: React.FC<
                 )}
             </div>
             <div>
-                <Button onClick={props.handleSubmit}>post</Button>
+                <StyledButton onClick={props.handleSubmit}>Post</StyledButton>
             </div>
         </StyledAddPostForm>
     )

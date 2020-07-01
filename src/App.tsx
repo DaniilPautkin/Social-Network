@@ -70,7 +70,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                     <Main>
                         <Switch>
                             <Route
-                                path="/profile/:UserId?"
+                                path="/profile/:userId?"
                                 render={() => <SuspendedProfile />}
                             />
                             <Route

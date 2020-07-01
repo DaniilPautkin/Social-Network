@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Button } from 'antd'
 
 // Colors
 
@@ -33,7 +34,7 @@ export const Main = styled.div`
     border-radius: 5px;
     color: black;
     padding: 10px;
-    background: #c5c6c7;
+    background: #fafbfc;
     grid-area: cont;
 
     @media screen and (max-width: 900px) {
@@ -47,6 +48,21 @@ export const StyledPreloader = styled.div`
 
     img {
         height: 50px;
+    }
+`
+
+export const StyledButton = styled(Button)`
+    border-radius: 5px;
+    :hover {
+        border: 1px solid ${Colors.greenColor};
+        color: ${Colors.greenColor};
+    }
+
+    :focus,
+    :active {
+        background: ${Colors.greenColor};
+        border: 1px solid ${Colors.greenColor};
+        color: #fff;
     }
 `
 
