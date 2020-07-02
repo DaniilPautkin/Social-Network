@@ -21,7 +21,7 @@ import UsersContainer from './components/Users/UsersContainer'
 import { withSuspense } from './hoc/withSuspense'
 import { initializeApp } from './redux/app-reducer'
 import store, { AppStateType } from './redux/redux-store'
-import { MainWrapper, Main } from './styles/App-styles'
+import { Main, MainWrapper } from './styles/App-styles'
 
 const DialoguesContainer = React.lazy(() =>
     import('./components/Dialogues/DialoguesContainer')
@@ -40,7 +40,7 @@ type DispatchPropsType = {
 
 class App extends React.Component<MapPropsType & DispatchPropsType> {
     catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
-        message.error('Some error occured')
+        message.error(`Error: ${e.reason}`)
     }
 
     componentDidMount() {

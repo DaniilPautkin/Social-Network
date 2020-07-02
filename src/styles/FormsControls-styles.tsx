@@ -1,4 +1,4 @@
-import { Input, Checkbox } from 'antd'
+import { Checkbox, Input } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import styled from 'styled-components'
 import { Colors } from './App-styles'
@@ -15,10 +15,13 @@ export const  = styled.formControl.error span `
 ` */
 
 export const FormSummaryError = styled.div`
+    cursor: default;
+    padding: 3px;
+    margin: 0 10px 0 10px;
     display: inline;
-    border: 2px solid red;
+    border: 2px solid ${Colors.redColor};
     border-radius: 5px;
-    color: red;
+    color: ${Colors.redColor};
 `
 
 export const StyledTextArea = styled(TextArea)`
@@ -72,4 +75,10 @@ export const StyledField = styled.div`
         min-width: 13px;
     }
     /* margin-bottom: 5px; */
+`
+
+export const ErrorSpan = styled.div`
+    padding: 10px !important;
+    margin: 10px !important;
+    display: none !important;
 `

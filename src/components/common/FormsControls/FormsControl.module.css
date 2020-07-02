@@ -3,11 +3,17 @@
     border: 2px solid #ec6e61;
 }
 
+.formControl.error {
+    margin: 10px;
+}
+
 .formControl.error span {
     color: #ec6e61;
 }
 
 .formSummaryError {
+    margin: 10px !important;
+    padding: 5px;
     display: inline;
     border: 2px solid #ec6e61;
     border-radius: 5px;

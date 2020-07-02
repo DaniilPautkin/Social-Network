@@ -1,14 +1,15 @@
+import Text from 'antd/lib/typography/Text'
 import React from 'react'
 import { Field, WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form'
 import {
+    ErrorSpan,
+    StyledCheckbox,
+    StyledField,
     StyledInput,
     StyledTextArea,
-    StyledField,
-    StyledCheckbox,
 } from '../../../styles/FormsControls-styles'
 import { FieldValidatorType } from '../../../utils/validators/validators'
 import s from './FormsControl.module.css'
-import Text from 'antd/lib/typography/Text'
 
 type FormControlPropsType = {
     meta: WrappedFieldMetaProps
@@ -24,7 +25,7 @@ const FormControl: React.FC<FormControlPropsType> = ({
         <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
             <div>
                 <div>{children}</div>
-                {hasError && <span>{error} </span>}
+                {hasError && <ErrorSpan>{error} </ErrorSpan>}
             </div>
         </div>
     )
