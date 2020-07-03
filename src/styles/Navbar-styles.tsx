@@ -6,7 +6,7 @@ export const StyledNavBar = styled.div`
     border-bottom-left-radius: 5px;
     padding: 20px;
     grid-auto-flow: row;
-    background: ${Colors.mainColor};
+    background: ${Colors.darkGrey};
     grid-area: navbar;
 
     @media screen and (max-width: 900px) {

@@ -1,15 +1,15 @@
+import Text from 'antd/lib/typography/Text'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import userPhoto from '../../assets/images/USER.png'
+import { StyledDefaultButton } from '../../styles/App-styles'
 import {
     UserContainer,
-    UserPhoto,
-    UserName,
     UserInfo,
+    UserName,
+    UserPhoto,
 } from '../../styles/Users-styles'
 import { UserType } from '../../types/types'
-import { Button } from 'antd'
-import Text from 'antd/lib/typography/Text'
 
 type PropsType = {
     user: UserType
@@ -24,6 +24,14 @@ let User: React.FC<PropsType> = ({
     unfollow,
     follow,
 }) => {
+    // FIX: move to common
+    let string: string | null = user.status
+    let statusLength: number = 10
+    let trimmedStatus: string | null =
+        string && string.length > statusLength
+            ? string.substring(0, statusLength - 3) + '...'
+            : string
+
     return (
         <UserContainer>
             <div>
@@ -41,10 +49,10 @@ let User: React.FC<PropsType> = ({
             <div>
                 <UserInfo>
                     <UserName>{user.name}</UserName>
-                    {user.status ? <Text code>{user.status}</Text> : ''}
+                    {user.status ? <Text code>{trimmedStatus}</Text> : ''}
                 </UserInfo>
                 {user.followed ? (
-                    <Button
+                    <StyledDefaultButton
                         disabled={followingInProgress.some(
                             (id) => id === user.id
                         )}
@@ -53,9 +61,9 @@ let User: React.FC<PropsType> = ({
                         }}
                     >
                         Unfollow
-                    </Button>
+                    </StyledDefaultButton>
                 ) : (
-                    <Button
+                    <StyledDefaultButton
                         disabled={followingInProgress.some(
                             (id) => id === user.id
                         )}
@@ -64,7 +72,7 @@ let User: React.FC<PropsType> = ({
                         }}
                     >
                         Follow
-                    </Button>
+                    </StyledDefaultButton>
                 )}
             </div>
         </UserContainer>

@@ -17,11 +17,10 @@ export const  = styled.formControl.error span `
 export const FormSummaryError = styled.div`
     cursor: default;
     padding: 3px;
-    margin: 0 10px 0 10px;
     display: inline;
-    border: 2px solid ${Colors.redColor};
+    border: 2px solid ${Colors.defaultRed};
     border-radius: 5px;
-    color: ${Colors.redColor};
+    color: ${Colors.defaultRed};
 `
 
 export const StyledTextArea = styled(TextArea)`
@@ -32,14 +31,14 @@ export const StyledTextArea = styled(TextArea)`
     :active,
     :focus {
         box-shadow: none;
-        border: 1px solid ${Colors.greenColor};
+        border: 1px solid ${Colors.defaultGreen};
     }
 `
 
 export const StyledCheckbox = styled(Checkbox)`
     .ant-checkbox-checked .ant-checkbox-inner {
-        background-color: ${Colors.greenColor};
-        border-color: ${Colors.greenColor};
+        background-color: ${Colors.defaultGreen};
+        border-color: ${Colors.defaultGreen};
     }
 `
 
@@ -50,7 +49,7 @@ export const StyledInput = styled(Input)`
     :active,
     :focus {
         box-shadow: none;
-        border: 1px solid ${Colors.greenColor};
+        border: 1px solid ${Colors.defaultGreen};
     }
     /* margin: 0px 5px 0px 5px; */
 `
@@ -79,6 +78,6 @@ export const StyledField = styled.div`
 
 export const ErrorSpan = styled.div`
     padding: 10px !important;
-    margin: 10px !important;
+    /* margin: 10px !important; */
     display: none !important;
 `

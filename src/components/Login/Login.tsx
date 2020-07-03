@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { InjectedFormProps, reduxForm } from 'redux-form'
 import { login } from '../../redux/auth-reducer'
 import { AppStateType } from '../../redux/redux-store'
-import { StyledButton } from '../../styles/App-styles'
+import { StyledDefaultButton } from '../../styles/App-styles'
 import { FormSummaryError } from '../../styles/FormsControls-styles'
 import { Captcha, StyledLoginForm } from '../../styles/Login-styles'
 import { required } from '../../utils/validators/validators'
@@ -65,7 +65,9 @@ const LoginForm: React.FC<
                     )}
             </div>
             <div>
-                <StyledButton onClick={handleSubmit}>Login</StyledButton>
+                <StyledDefaultButton onClick={handleSubmit}>
+                    Login
+                </StyledDefaultButton>
             </div>
         </StyledLoginForm>
     )

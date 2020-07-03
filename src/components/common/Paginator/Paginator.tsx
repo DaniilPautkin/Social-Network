@@ -3,7 +3,7 @@ import cn from 'classnames'
 import React, { useState } from 'react'
 import {
     Page,
-    StyledButton,
+    StyledDefaultButton,
     StyledPaginator,
     StyledPaginatorPage,
 } from '../../../styles/App-styles'
@@ -39,13 +39,13 @@ let Paginator: React.FC<PropsType> = ({
     return (
         <StyledPaginatorPage>
             {portionNumber > 1 && (
-                <StyledButton
+                <StyledDefaultButton
                     onClick={() => {
                         setPortionNumber(portionNumber - 1)
                     }}
                 >
                     <CaretLeftOutlined />
-                </StyledButton>
+                </StyledDefaultButton>
             )}
             <StyledPaginator>
                 {pages
@@ -78,13 +78,13 @@ let Paginator: React.FC<PropsType> = ({
                     })}
             </StyledPaginator>
             {portionCount > portionNumber && (
-                <StyledButton
+                <StyledDefaultButton
                     onClick={() => {
                         setPortionNumber(portionNumber + 1)
                     }}
                 >
                     <CaretRightOutlined />
-                </StyledButton>
+                </StyledDefaultButton>
             )}
         </StyledPaginatorPage>
     )

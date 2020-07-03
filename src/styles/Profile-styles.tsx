@@ -47,7 +47,7 @@ export const ChooseFileForm = styled(Input)`
     }
     :focus {
         box-shadow: none;
-        background: ${Colors.greenColor};
+        background: ${Colors.defaultGreen};
         color: #fff;
     }
     ::before {
@@ -57,7 +57,7 @@ export const ChooseFileForm = styled(Input)`
         content: '';
     }
     :hover {
-        border: 1px solid ${Colors.greenColor} !important;
+        border: 1px solid ${Colors.defaultGreen} !important;
         cursor: pointer;
     }
 `
@@ -138,7 +138,7 @@ export const StyledStatusInput = styled(Input)`
     :active,
     :focus {
         box-shadow: none;
-        border: 1px solid ${Colors.greenColor};
+        border: 1px solid ${Colors.defaultGreen};
     }
 `
 

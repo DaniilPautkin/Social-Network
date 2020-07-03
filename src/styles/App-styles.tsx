@@ -4,12 +4,13 @@ import { Button } from 'antd'
 // Colors
 
 export const Colors = {
-    mainColor: '#24292E',
-    secondColor: '#FAFBFC',
-    greenColor: '#28A745',
+    darkGrey: '#24292E',
+    lightGrey: '#FAFBFC',
+    defaultGreen: '#28A745',
+    darkGreen: '#196b2b',
     lightGreen: '#40C463',
-    redColor: '#EC6E61',
-    blueColor: '#0366D6',
+    defaultRed: '#EC6E61',
+    defaultBlue: '#0366D6',
 }
 
 export const MainWrapper = styled.div`
@@ -51,18 +52,48 @@ export const StyledPreloader = styled.div`
     }
 `
 
-export const StyledButton = styled(Button)`
+export const StyledDefaultButton = styled(Button)`
     border-radius: 5px;
     :hover {
-        border: 1px solid ${Colors.greenColor};
-        color: ${Colors.greenColor};
+        border: 1px solid ${Colors.defaultGreen};
+        color: ${Colors.defaultGreen};
     }
 
     :focus,
     :active {
-        background: ${Colors.greenColor};
-        border: 1px solid ${Colors.greenColor};
+        background: ${Colors.defaultGreen};
+        border: 1px solid ${Colors.defaultGreen};
         color: #fff;
+    }
+`
+export const StyledPrimaryButton = styled(Button)`
+    border-radius: 5px;
+    background: ${Colors.defaultGreen};
+    color: ${Colors.lightGrey};
+    :hover {
+        background: ${Colors.lightGreen};
+        /* border: 1px solid ${Colors.defaultGreen}; */
+        color: ${Colors.lightGrey};
+    }
+    :focus,
+    :active {
+        background: ${Colors.darkGreen};
+        border: 1px solid ${Colors.darkGreen};
+        color: #fff;
+    }
+`
+
+export const StyledLinkButton = styled(Button)`
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    color: ${Colors.defaultGreen};
+    :hover {
+        color: ${Colors.defaultGreen};
+    }
+    :focus,
+    :active {
+        color: ${Colors.defaultGreen};
     }
 `
 
@@ -84,7 +115,7 @@ export const Page = styled.div`
     border-radius: 100px;
     cursor: pointer;
     :hover {
-        color: ${Colors.redColor};
+        color: ${Colors.defaultRed};
     }
     .selectedPage:hover {
         background: rgba(0, 0, 0, 0);

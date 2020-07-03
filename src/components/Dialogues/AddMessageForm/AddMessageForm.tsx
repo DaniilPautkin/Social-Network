@@ -1,6 +1,6 @@
 import React from 'react'
 import { InjectedFormProps, reduxForm } from 'redux-form'
-import { StyledButton } from '../../../styles/App-styles'
+import { StyledDefaultButton } from '../../../styles/App-styles'
 import {
     StyledAddMessageForm,
     AddMessageFormButtonContainer,
@@ -35,7 +35,9 @@ const AddMessageForm: React.FC<
                 )}
             </div>
             <AddMessageFormButtonContainer>
-                <StyledButton onClick={props.handleSubmit}>Send</StyledButton>
+                <StyledDefaultButton onClick={props.handleSubmit}>
+                    Send
+                </StyledDefaultButton>
             </AddMessageFormButtonContainer>
         </StyledAddMessageForm>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { StyledButton } from '../../styles/App-styles'
+import { StyledDefaultButton, StyledLinkButton } from '../../styles/App-styles'
 import { AuthContainer, Logo, StyledHeader } from '../../styles/Header-styles'
 
 export type MapPropsType = {
@@ -23,13 +23,13 @@ const Header: React.FC<MapPropsType & DispatchPropsType> = (props) => {
                 {props.isAuth ? (
                     <AuthContainer>
                         {props.login}{' '}
-                        <StyledButton onClick={props.logout}>
+                        <StyledLinkButton onClick={props.logout}>
                             Log out
-                        </StyledButton>
+                        </StyledLinkButton>
                     </AuthContainer>
                 ) : (
                     <NavLink to={'/login'}>
-                        <StyledButton>Login</StyledButton>
+                        <StyledDefaultButton>Login</StyledDefaultButton>
                     </NavLink>
                 )}
             </AuthContainer>

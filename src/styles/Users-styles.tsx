@@ -22,11 +22,6 @@ export const UserContainer = styled.main`
     flex-direction: column;
     align-items: center;
     text-align: center;
-
-    Button {
-        background: rgba(0, 0, 0, 0.1);
-        border: none;
-    }
 `
 
 export const Span = styled.span`
@@ -38,6 +33,8 @@ export const Span = styled.span`
 export const StyledUsersContainer = styled.div`
     display: flex;
     flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
 `
 
 export const UsersPage = styled.div`
