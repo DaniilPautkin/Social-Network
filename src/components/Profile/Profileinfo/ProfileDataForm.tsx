@@ -1,7 +1,7 @@
-import { Button } from 'antd'
 import Text from 'antd/lib/typography/Text'
 import React from 'react'
 import { InjectedFormProps, reduxForm } from 'redux-form'
+import { StyledDefaultButton } from '../../../styles/App-styles'
 import { FormSummaryError } from '../../../styles/FormsControls-styles'
 import {
     EditContacts,
@@ -12,9 +12,9 @@ import { ProfileType } from '../../../types/types'
 import {
     createField,
     GetStringKeys,
+    RFCheckbox,
     RFInput,
     RFTextarea,
-    RFCheckbox,
 } from '../../common/FormsControls/FormsControls'
 
 const ProfileDataForm: React.FC<
@@ -22,8 +22,10 @@ const ProfileDataForm: React.FC<
 > = ({ handleSubmit, profile, error }) => {
     return (
         // FIX:
-        <form onSubmit={handleSubmit}>
-            <Button onClick={handleSubmit}>Save</Button>
+        <form>
+            <StyledDefaultButton onClick={handleSubmit}>
+                Save
+            </StyledDefaultButton>
             {error && <FormSummaryError>{error}</FormSummaryError>}
             <SingleForm>
                 <b>Fullname:</b>{' '}

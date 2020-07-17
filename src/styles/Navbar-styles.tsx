@@ -16,7 +16,7 @@ export const StyledNavBar = styled.div`
 
 export const NavItem = styled.div``
 
-export const StyledNavnarNavLink = styled(NavLink)`
+export const StyledNavbarNavLink = styled(NavLink)`
     text-decoration: none;
     color: #fffaf7;
 
@@ -26,6 +26,7 @@ export const StyledNavnarNavLink = styled(NavLink)`
         transition: 0.1s ease-in;
         color: ${Colors.lightGreen};
     }
+    :focus,
     :active {
         color: ${Colors.lightGreen};
     }

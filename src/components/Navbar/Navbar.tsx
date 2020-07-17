@@ -2,21 +2,21 @@ import React from 'react'
 import {
     NavItem,
     StyledNavBar,
-    StyledNavnarNavLink,
+    StyledNavbarNavLink,
 } from '../../styles/Navbar-styles'
 
 const Navbar: React.FC = (props) => {
     return (
         <StyledNavBar>
             <NavItem>
-                <StyledNavnarNavLink to="/profile" activeClassName="active">
+                <StyledNavbarNavLink to="/profile" activeClassName="active">
                     Profile
-                </StyledNavnarNavLink>
+                </StyledNavbarNavLink>
             </NavItem>
             <NavItem>
-                <StyledNavnarNavLink to="/dialogues" activeClassName="active">
+                <StyledNavbarNavLink to="/dialogues" activeClassName="active">
                     Messages
-                </StyledNavnarNavLink>
+                </StyledNavbarNavLink>
             </NavItem>
             {/* TODO: remove comments due to added News & Music */}
             {/* <NavItem>
@@ -30,14 +30,14 @@ const Navbar: React.FC = (props) => {
                 </StyledNavnarNavLink>
             </NavItem> */}
             <NavItem>
-                <StyledNavnarNavLink to="/settings" activeClassName="active">
+                <StyledNavbarNavLink to="/settings" activeClassName="active">
                     Settings
-                </StyledNavnarNavLink>
+                </StyledNavbarNavLink>
             </NavItem>
             <NavItem>
-                <StyledNavnarNavLink to="/users" activeClassName="active">
+                <StyledNavbarNavLink to="/users" activeClassName="active">
                     Users
-                </StyledNavnarNavLink>
+                </StyledNavbarNavLink>
             </NavItem>
         </StyledNavBar>
     )

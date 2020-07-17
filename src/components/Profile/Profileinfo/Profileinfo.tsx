@@ -45,7 +45,6 @@ const Profileinfo: React.FC<PropsType> = ({
     }
 
     const onSubmit = (formData: ProfileType) => {
-        // TODO: remove then
         saveProfile(formData).then(() => {
             setEditMode(false)
         })
