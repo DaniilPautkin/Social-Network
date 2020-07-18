@@ -1,7 +1,8 @@
-import { Dispatch } from 'react'
+import { ResponseType } from '../api/api';
+import {Dispatch} from 'redux';
 import { usersAPI } from '../api/users-api'
 import { updateObjectInArray } from "../utils/object-helpers"
-import { UserType } from './../types/types'
+import { UserType } from '../types/types'
 import { BasicThunkType, InferActionsTypes } from './redux-store'
 
 let initialState = {
@@ -63,9 +64,9 @@ export const usersActions = {
 }
 
 export const requestUsers = (page: number, pageSize: number): ThunkType => {
-    return async (dispatch, getState) => {
-        dispatch(usersActions.setCurrentPage(page))
+    return async (dispatch: any, getState: any) => {
         dispatch(usersActions.toggleIsFetching(true))
+        dispatch(usersActions.setCurrentPage(page))
 
         let data = await usersAPI.getUsers(page, pageSize)
 
@@ -75,24 +76,26 @@ export const requestUsers = (page: number, pageSize: number): ThunkType => {
     }
 }
 
-const _followUnfollowToggle = async (dispatch: any, userId: number, apiMethod: any, actionCreator: (userId: number) => ActionsTypes) => {
+const _followUnfollowToggle = async (dispatch: any, userId: number, apiMethod: (userId: number) => Promise<ResponseType>, actionCreator: (userId: number) => ActionsTypes) => {
 
     dispatch(usersActions.toggleFollowingProgress(true, userId))
     let response = await apiMethod(userId)
 
-    if (response.data.resultCode === 0) {
+    if (response.resultCode === 0) {
         dispatch(actionCreator(userId))
     }
     dispatch(usersActions.toggleFollowingProgress(false, userId))
 }
+
 export const follow = (userId: number): ThunkType => {
     return async (dispatch: Dispatch<ActionsTypes>) => {
-        _followUnfollowToggle(dispatch, userId, usersAPI.follow.bind(usersAPI), usersActions.followSuccess)
+       await _followUnfollowToggle(dispatch, userId, usersAPI.follow.bind(usersAPI), usersActions.followSuccess)
     }
 }
+
 export const unfollow = (userId: number): ThunkType => {
     return async (dispatch: Dispatch<ActionsTypes>) => {
-        _followUnfollowToggle(dispatch, userId, usersAPI.unfollow.bind(usersAPI), usersActions.unfollowSuccess)
+       await _followUnfollowToggle(dispatch, userId, usersAPI.unfollow.bind(usersAPI), usersActions.unfollowSuccess)
     }
 }
 
