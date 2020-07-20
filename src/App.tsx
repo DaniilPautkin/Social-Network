@@ -40,7 +40,7 @@ type DispatchPropsType = {
 
 class App extends React.Component<MapPropsType & DispatchPropsType> {
     catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
-        message.error(`Error: ${e.reason}`)
+        message.error(`${e.reason}`)
     }
 
     componentDidMount() {

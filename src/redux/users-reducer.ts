@@ -10,6 +10,10 @@ let initialState = {
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
+    filter: {
+        term: '' as string,
+        friend: null as null | boolean 
+    },
     isFetching: true,
     followingInProgress: [] as Array<number> //array of users ids   
 }
@@ -38,6 +42,9 @@ const usersReducer = (state = initialState, action: ActionsTypes): InitialStateT
         case 'SN/USERS/TOGGLE_IS_FETCHING': {
             return { ...state, isFetching: action.isFetching }
         }
+        case 'SN/USERS/SET_FILTER': {
+            return {...state, filter: action.payload}
+        }
         case 'SN/USERS/TOGGLE_IS_FOLLOWING_PROGRESS': {
             return {
                 ...state,
@@ -58,17 +65,19 @@ export const usersActions = {
     unfollowSuccess: (userId: number) => ({ type: 'SN/USERS/UNFOLLOW', userId } as const),
     setUsers: (users: Array<UserType>) => ({ type: 'SN/USERS/SET_USERS', users } as const),
     setCurrentPage: (currentPage: number) => ({ type: 'SN/USERS/SET_CURRENT_PAGE', currentPage } as const),
+    setFilter: (filter: FilterType) => ({ type: 'SN/USERS/SET_FILTER', payload: filter } as const),
     setTotalUsersCount: (totalUsersCount: number) => ({ type: 'SN/USERS/SET_USERS_TOTAL_COUNT', totalUsersCount } as const),
     toggleIsFetching: (isFetching: boolean) => ({ type: 'SN/USERS/TOGGLE_IS_FETCHING', isFetching } as const),
     toggleFollowingProgress: (isFetching: boolean, userId: number) => ({ type: 'SN/USERS/TOGGLE_IS_FOLLOWING_PROGRESS', isFetching, userId } as const)
 }
 
-export const requestUsers = (page: number, pageSize: number): ThunkType => {
+export const requestUsers = (page: number, pageSize: number, filter: FilterType): ThunkType => {
     return async (dispatch: any, getState: any) => {
         dispatch(usersActions.toggleIsFetching(true))
         dispatch(usersActions.setCurrentPage(page))
+        dispatch(usersActions.setFilter(filter))
 
-        let data = await usersAPI.getUsers(page, pageSize)
+        let data = await usersAPI.getUsers(page, pageSize, filter.term, filter.friend)
 
         dispatch(usersActions.setUsers(data.items))
         dispatch(usersActions.setTotalUsersCount(data.totalCount))
@@ -100,6 +109,7 @@ export const unfollow = (userId: number): ThunkType => {
 }
 
 export type InitialStateType = typeof initialState
+export type FilterType = typeof initialState.filter
 type ActionsTypes = InferActionsTypes<typeof usersActions>
 type ThunkType = BasicThunkType<ActionsTypes>
 
