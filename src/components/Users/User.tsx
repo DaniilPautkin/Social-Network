@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import userPhoto from '../../assets/images/USER.png'
 import { StyledDefaultButton } from '../../styles/App-styles'
 import {
-    UserContainer,
+    StyledUserContainer,
     UserInfo,
     UserName,
     UserPhoto,
@@ -33,7 +33,7 @@ let User: React.FC<PropsType> = ({
             : string
 
     return (
-        <UserContainer>
+        <StyledUserContainer>
             <div>
                 <NavLink to={'/profile/' + user.id}>
                     <UserPhoto
@@ -42,7 +42,7 @@ let User: React.FC<PropsType> = ({
                                 ? user.photos.small
                                 : userPhoto
                         }
-                        alt=""
+                        alt=''
                     />
                 </NavLink>
             </div>
@@ -75,7 +75,7 @@ let User: React.FC<PropsType> = ({
                     </StyledDefaultButton>
                 )}
             </div>
-        </UserContainer>
+        </StyledUserContainer>
     )
 }
 

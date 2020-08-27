@@ -12,22 +12,22 @@ import {
 import { compose } from 'redux'
 import Preloader from './components/common/Preloader/Preloader'
 import HeaderContainer from './components/Header/HeaderContainer'
-import Login from './components/Login/Login'
 import MusicContainer from './components/Music/MusicContainer'
 import Navbar from './components/Navbar/Navbar'
 import NewsContainer from './components/News/NewsContainer'
 import Settings from './components/Settings/Settings'
-import UsersContainer from './components/Users/UsersContainer'
+import { UsersPage } from './components/Users/UsersPage'
 import { withSuspense } from './hoc/withSuspense'
 import { initializeApp } from './redux/app-reducer'
 import store, { AppStateType } from './redux/redux-store'
 import { Main, MainWrapper } from './styles/App-styles'
+import { LoginPage } from './components/Login/LoginPage'
 
-const DialoguesContainer = React.lazy(() =>
-    import('./components/Dialogues/DialoguesContainer')
+const DialoguesContainer = React.lazy(
+    () => import('./components/Dialogues/DialoguesContainer')
 )
-const ProfileContainer = React.lazy(() =>
-    import('./components/Profile/ProfileContainer')
+const ProfileContainer = React.lazy(
+    () => import('./components/Profile/ProfileContainer')
 )
 
 const SuspendedDialogues = withSuspense(DialoguesContainer)
@@ -70,39 +70,36 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                     <Main>
                         <Switch>
                             <Route
-                                path="/profile/:userId?"
+                                path='/profile/:userId?'
                                 render={() => <SuspendedProfile />}
                             />
                             <Route
-                                path="/dialogues"
+                                path='/dialogues'
                                 render={() => <SuspendedDialogues />}
                             />
                             <Route
-                                path="/news"
+                                path='/news'
                                 render={() => <NewsContainer />}
                             />
                             <Route
-                                path="/music"
+                                path='/music'
                                 render={() => <MusicContainer />}
                             />
                             <Route
-                                path="/settings"
+                                path='/settings'
                                 render={() => <Settings />}
                             />
-                            <Route
-                                path="/users"
-                                render={() => <UsersContainer />}
-                            />
-                            <Route path="/login" render={() => <Login />} />
+                            <Route path='/users' render={() => <UsersPage />} />
+                            <Route path='/login' render={() => <LoginPage />} />
                             <Route
                                 exact
-                                path="/"
-                                render={() => <Redirect to="/profile" />}
+                                path='/'
+                                render={() => <Redirect to='/profile' />}
                             />
                             <Route
-                                path="*"
+                                path='*'
                                 render={() => (
-                                    <div className="notFoundPage">
+                                    <div className='notFoundPage'>
                                         <h1>404</h1>
                                         <h3>Page not found</h3>
                                     </div>

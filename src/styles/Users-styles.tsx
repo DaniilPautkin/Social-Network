@@ -16,7 +16,7 @@ export const UserPhoto = styled.img`
     }
 `
 
-export const UserContainer = styled.main`
+export const StyledUserContainer = styled.main`
     padding: 10px;
     display: flex;
     flex-direction: column;
