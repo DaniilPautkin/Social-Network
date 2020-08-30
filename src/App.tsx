@@ -47,7 +47,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
         document.title = 'Social-Network'
         this.props.initializeApp()
         window.addEventListener(
-            'unhandledrejection',
+            'unhandledrejection',   
             this.catchAllUnhandledErrors
         )
     }
