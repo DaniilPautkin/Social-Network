@@ -13,7 +13,7 @@ import {
     createField,
     RFTextarea,
 } from '../../common/FormsControls/FormsControls'
-import { NewMessageFormType } from '../Dialogues'
+import { NewMessageFormType } from '../DialoguesPage'
 
 const maxLength50 = MaxLenghtCreator(50)
 
