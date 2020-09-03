@@ -44,17 +44,14 @@ const ProfileContainer: React.FC<any> = (props) => {
 
     const refreshProfile = () => {
         if (!userId) {
-            !props.loggedUserId && history.push('/login')
-
-        if (!props.loggedUserId) {
-
-            console.error('userId is missing in URI or state')
-
-        } else {
-            props.getUserProfile(userId)
-            props.getStatus(userId)
+            if (!props.loggedUserId) {
+                history.push('/login')
+                console.error('userId is missing in URI or state')
+            } else {
+                props.getUserProfile(props.loggedUserId)
+                props.getStatus(props.loggedUserId)
+            }
         }
-    }
     }
 
     useEffect(() => refreshProfile(), [])
@@ -69,7 +66,7 @@ const ProfileContainer: React.FC<any> = (props) => {
         <>
             <Profile
                 {...props}
-                isOwner={!props.match.params.userId}
+                isOwner={!userId}
                 profile={props.profile}
                 status={props.status}
                 updateStatus={props.updateStatus}
@@ -88,9 +85,9 @@ const mapStateToProps = (state: AppStateType) => ({
 })
 
 export default connect(mapStateToProps, {
-        getUserProfile,
-        getStatus,
-        updateStatus,
-        savePhoto,
-        saveProfile,
-    })(ProfileContainer)
+    getUserProfile,
+    getStatus,
+    updateStatus,
+    savePhoto,
+    saveProfile,
+})(ProfileContainer)
