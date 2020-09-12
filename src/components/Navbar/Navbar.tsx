@@ -9,33 +9,32 @@ const Navbar: React.FC = (props) => {
     return (
         <StyledNavBar>
             <NavItem>
-                <StyledNavbarNavLink to="/profile" activeClassName="active">
+                <StyledNavbarNavLink to='/profile' activeClassName='active'>
                     Profile
                 </StyledNavbarNavLink>
             </NavItem>
             <NavItem>
-                <StyledNavbarNavLink to="/dialogues" activeClassName="active">
+                <StyledNavbarNavLink to='/dialogues' activeClassName='active'>
                     Messages
                 </StyledNavbarNavLink>
             </NavItem>
-            {/* TODO: remove comments due to added News & Music */}
-            {/* <NavItem>
-                <StyledNavnarNavLink to="/News" activeClassName={active}>
+            <NavItem>
+                <StyledNavbarNavLink to='/news' activeClassName='active'>
                     News
-                </StyledNavnarNavLink>
+                </StyledNavbarNavLink>
             </NavItem>
             <NavItem>
-                <StyledNavnarNavLink to="/Music" activeClassName={active}>
+                <StyledNavbarNavLink to='/music' activeClassName='active'>
                     Music
-                </StyledNavnarNavLink>
-            </NavItem> */}
+                </StyledNavbarNavLink>
+            </NavItem>
             <NavItem>
-                <StyledNavbarNavLink to="/settings" activeClassName="active">
+                <StyledNavbarNavLink to='/settings' activeClassName='active'>
                     Settings
                 </StyledNavbarNavLink>
             </NavItem>
             <NavItem>
-                <StyledNavbarNavLink to="/users" activeClassName="active">
+                <StyledNavbarNavLink to='/users' activeClassName='active'>
                     Users
                 </StyledNavbarNavLink>
             </NavItem>

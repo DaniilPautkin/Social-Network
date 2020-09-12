@@ -11,26 +11,26 @@ import {
 } from 'react-router-dom'
 import { compose } from 'redux'
 import Preloader from './components/common/Preloader/Preloader'
-import HeaderContainer from './components/Header/HeaderContainer'
-import MusicContainer from './components/Music/MusicContainer'
+import Header from './components/Header/Header'
+import { LoginPage } from './components/Login/LoginPage'
+import MusicPage from './components/Music/MusicPage'
 import Navbar from './components/Navbar/Navbar'
-import NewsContainer from './components/News/NewsContainer'
+import NewsPage from './components/News/NewsPage'
 import Settings from './components/Settings/Settings'
 import { UsersPage } from './components/Users/UsersPage'
 import { withSuspense } from './hoc/withSuspense'
 import { initializeApp } from './redux/app-reducer'
 import store, { AppStateType } from './redux/redux-store'
 import { Main, MainWrapper } from './styles/App-styles'
-import { LoginPage } from './components/Login/LoginPage'
 
-const DialoguesContainer = React.lazy(
-    () => import('./components/Dialogues/DialoguesContainer')
+const DialoguesPage = React.lazy(
+    () => import('./components/Dialogues/DialoguesPage')
 )
 const ProfileContainer = React.lazy(
     () => import('./components/Profile/ProfileContainer')
 )
 
-const SuspendedDialogues = withSuspense(DialoguesContainer)
+const SuspendedDialogues = withSuspense(DialoguesPage)
 const SuspendedProfile = withSuspense(ProfileContainer)
 
 type MapPropsType = ReturnType<typeof MapStateToProps>
@@ -47,7 +47,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
         document.title = 'Social-Network'
         this.props.initializeApp()
         window.addEventListener(
-            'unhandledrejection',   
+            'unhandledrejection',
             this.catchAllUnhandledErrors
         )
     }
@@ -65,7 +65,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
         } else {
             return (
                 <MainWrapper>
-                    <HeaderContainer />
+                    <Header />
                     <Navbar />
                     <Main>
                         <Switch>
@@ -77,14 +77,8 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                                 path='/dialogues'
                                 render={() => <SuspendedDialogues />}
                             />
-                            <Route
-                                path='/news'
-                                render={() => <NewsContainer />}
-                            />
-                            <Route
-                                path='/music'
-                                render={() => <MusicContainer />}
-                            />
+                            <Route path='/news' render={() => <NewsPage />} />
+                            <Route path='/music' render={() => <MusicPage />} />
                             <Route
                                 path='/settings'
                                 render={() => <Settings />}
