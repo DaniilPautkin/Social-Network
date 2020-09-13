@@ -5,7 +5,7 @@ import { updateObjectInArray } from "../utils/object-helpers"
 import { UserType } from '../types/types'
 import { BasicThunkType, InferActionsTypes } from './redux-store'
 
-let initialState = {
+const initialState = {
     users: [] as Array<UserType>,
     pageSize: 10,
     totalUsersCount: 0,
@@ -14,7 +14,7 @@ let initialState = {
         term: '' as string,
         friend: null as null | boolean 
     },
-    isFetching: true,
+    isFetching: false,
     followingInProgress: [] as Array<number> //array of users ids   
 }
 
